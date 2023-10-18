@@ -1,28 +1,7 @@
-/* #wrap {
-  width: 750px;
-  height: 1500px;
-  padding: 0;
-  overflow: hidden;
+.main{
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: url("https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW5zdGElMjBwb3N0fGVufDB8fDB8fHww&w=500");
 }
-
-#scaled-frame {
-  width: 1000px;
-  height: 2000px;
-  border: 0px;
-}
-
-#scaled-frame {
-  zoom: 0.75;
-  -moz-transform: scale(0.75);
-  -moz-transform-origin: 0 0;
-  -o-transform: scale(0.75);
-  -o-transform-origin: 0 0;
-  -webkit-transform: scale(0.75);
-  -webkit-transform-origin: 0 0;
-}
-
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  #scaled-frame {
-    zoom: 1;
-  }
-} */

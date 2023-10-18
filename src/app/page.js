@@ -11,7 +11,7 @@ export default function Home() {
     title:"",
     description:"",
     width:1080,
-    height:1320
+    height:1920
   })
 
 
@@ -25,9 +25,6 @@ export default function Home() {
  
   return (
     <main>
-      
-
-     
 
       <div style={{display:"flex"}}>
 
@@ -43,14 +40,12 @@ export default function Home() {
         </div>
 
         <div style={{flex:"5"}}>
-        <iframe style={{minWidth:"100%",minHeight:"90vh",display:"flex",justifyContent:"center",alignItems:"center",border:"0px",borderRadius:"10px"}} src={`http://localhost:3000/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}`} allowFullScreen></iframe>
+        {/* <iframe className='min-w-[100%] min-h-[90vh] flex justify-center items-center border-0 rounded-2xl m-auto' src={`http://localhost:3000/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}`} allowFullScreen></iframe> */}
+        <img src={`http://localhost:3000/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}`} alt="pic"/>
         </div>
 
       
       </div>
-
-      
-
 
       {/* <Link href={`/api/og?title=have`}>button</Link> */}
     </main>
