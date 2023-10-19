@@ -19,7 +19,7 @@ export default function Home() {
     vendorLogo: null,
     special: "",
     width: 1080,
-    height: 1320,
+    height: 1920,
   });
 
   const handleChange = (e) => {
@@ -94,7 +94,7 @@ export default function Home() {
   return (
     <main className="bg-gradient-to-r from-red-300 via-yellow-300 to-blue-300 p-20">
       <div className="w-full flex justify-between gap-10 p-10">
-        <div className="w-1/2 h-full py-12 border border-gray-400 flex flex-col px-56 mx-auto gap-5 rounded-lg bg-gradient-to-r from-blue-200 to-red-200">
+        <div className="w-full h-full py-12 border border-gray-400 flex flex-col px-20 mx-auto gap-5 rounded-lg bg-gradient-to-r from-blue-200 to-red-200">
           <h1 className="font-extrabold mx-auto text-4xl bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">
             Vendor Form
           </h1>
@@ -166,9 +166,9 @@ export default function Home() {
         <Image src={category ?? ''} alt='Image' width={400} height={300}/> */}
         </div>
 
-        <div style={{flex:"5"}}>
+        <div style={{display:"flex",textAlign:"center",justifyContent:"center",alignItems:"center",width:"100%",margin:"auto",border:"none"}}>
         
-        <img src={`http://localhost:3000/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}`} alt="pic"/>
+        <img src={`http://localhost:3000/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}`} alt="pic" width={"100%"}/>
         </div>
       </div>
 

@@ -26,7 +26,7 @@ export async function GET(request) {
     const hasHeight = searchParams.get('height');
     const title = hasTitle
       ? searchParams.get('title')?.slice(0, 100)
-      : 'My default title';
+      : 'Order Navratri specials from our restaurants now!';
 
       const description = hasDesc ? searchParams.get('description')?.slice(0,100) : 'Sabudana Khichdi, Upwas thali & More';
       const width = hasWidth ? searchParams.get('width')?.slice(0,100) : 1080;
@@ -91,12 +91,12 @@ export async function GET(request) {
           }}
         >
         
-            <img src="https://neon.ipsator.com/c/image/upload/v1697634895/irctc/post/elements/food/post-food-1.png" alt="dd" width={"100%"} style={{marginTop:"350px"}}/>
+            <img src="https://neon.ipsator.com/c/image/upload/v1697634895/irctc/post/elements/food/post-food-1.png" alt="dd" width={"100%"} style={{marginTop:"400px"}}/>
     
           
           
 
-            <div style={{display:"flex",textAlign:"center",justifyContent:"center",alignItems:"center",width:"100%",margin:"auto",border:"1px solid black",marginTop:"200px"}}>
+            <div style={{display:"flex",textAlign:"center",justifyContent:"center",alignItems:"center",width:"99%",height:"300px",margin:"auto",backgroundColor:"white",marginTop:"150px"}}>
 
               <img src="https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png" alt="" width={"30%"}/>
         
@@ -105,10 +105,11 @@ export async function GET(request) {
               fontSize: 30,
               fontStyle: 'normal',
               letterSpacing: '-0.025em',
-              color:"black",
+              color:"rgb(123,64,8)",
               lineHeight: 1.4,
               whiteSpace: 'pre-wrap',
-              fontWeight:800
+              fontWeight:800,
+              width:"70%"
             }}
           >
             {title}
