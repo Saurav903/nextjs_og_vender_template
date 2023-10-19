@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
 export default function Home() {
+  
   const { baground, category } = useContext(AuthContext);
 
   const [state, setState] = useState({
