@@ -97,6 +97,8 @@ export async function GET(request) {
           
 
             <div style={{display:"flex",textAlign:"center",justifyContent:"center",alignItems:"center",width:"100%",margin:"auto",border:"1px solid black",marginTop:"200px"}}>
+
+              <img src="https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png" alt="" width={"30%"}/>
         
         <p
             style={{
