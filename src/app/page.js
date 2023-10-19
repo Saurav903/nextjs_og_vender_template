@@ -166,20 +166,9 @@ export default function Home() {
         <Image src={category ?? ''} alt='Image' width={400} height={300}/> */}
         </div>
 
-        <div style={{ flex: "5" }}>
-          <iframe
-            style={{
-              minWidth: "100%",
-              minHeight: "90vh",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              border: "0px",
-              borderRadius: "10px",
-            }}
-            src={`http://localhost:3000/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}`}
-            allowFullScreen
-          ></iframe>
+        <div style={{flex:"5"}}>
+        
+        <img src={`http://localhost:3000/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}`} alt="pic"/>
         </div>
       </div>
 
