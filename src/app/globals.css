@@ -3,8 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body{
-  margin: 10px;
+  margin: 0;
 }
 /* .m{
     width: 100%;
