@@ -1,12 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import { useContext, useEffect, useState } from "react";
-import { PopoverDemo } from "./components/ModalFInal";
+import { PopoverDemo } from "../components/ModalFInal";
 import { FaInstagramSquare, FaWhatsappSquare } from "react-icons/fa";
 import { AuthContext } from "@/context/AuthContext";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import axios from 'axios';
 
 export default function Home() {
   const { baground, category } = useContext(AuthContext);
@@ -27,18 +28,32 @@ export default function Home() {
   //   setState({ ...state, baground: baground });
   // }, [baground]);
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     let name = e.target.name;
     let value;
     if (name == "vendorLogo") {
-      value = URL.createObjectURL(e.target.files[0]);
+      const formData = new FormData();
+      formData.append("image", e.target.files[0]);
+
+      const apiKey = "e434cd7b2acad31fec51625d4ac3c53f";
+
+      try {
+        const response = await axios.post(
+          `https://api.imgbb.com/1/upload?key=${apiKey}`,
+          formData
+        );
+        // console.log('response',response.data.data.url)
+        value=response.data.data.url;
+      } catch (error) {
+        console.error("Image upload failed:", error);
+      }
     } else {
       value = e.target.value;
     }
     setState({ ...state, [name]: value });
   };
 
-  console.log(state.imageId);
+  // console.log("Vendor", state.vendorLogo);
 
   const BgImages = [
     {
