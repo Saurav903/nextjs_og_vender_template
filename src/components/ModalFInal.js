@@ -19,7 +19,7 @@ export function PopoverDemo({ BgImages, title, setState, state }) {
       setState({ ...state, baground: item, imageId: id });
     } else if (title === "Category") {
       setCategory(item);
-      setState({ ...state, category: item, imageId: id });
+      setState({ ...state, category: item });
     }
   };
 

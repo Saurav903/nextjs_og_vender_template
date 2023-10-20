@@ -1,25 +1,23 @@
-import { ImageResponse } from 'next/server';
+import { ImageResponse } from "next/server";
 // App router includes @vercel/og.
 // No need to install it.
 
- 
-export const runtime = 'edge';
+export const runtime = "edge";
 const fontDataRegular = fetch(
-  new URL('../../../../public/Inter-Bold.ttf', import.meta.url),
+  new URL("../../../../public/Inter-Bold.ttf", import.meta.url)
 ).then((res) => res.arrayBuffer());
 const fontDataBolder = fetch(
-  new URL('../../../../public/Inter-Regular.ttf', import.meta.url),
+  new URL("../../../../public/Inter-Regular.ttf", import.meta.url)
 ).then((res) => res.arrayBuffer());
 export async function GET(request) {
-  
- 
   try {
-    const [regularfont,bolderfont] = await Promise.all([fontDataRegular,fontDataBolder]);
-    
+    const [regularfont, bolderfont] = await Promise.all([
+      fontDataRegular,
+      fontDataBolder,
+    ]);
 
     const { searchParams } = new URL(request.url);
- 
-    
+
     const hasTitle = searchParams.get("title");
     const hasDesc = searchParams.get("description");
     const hasSpecial = searchParams.get("special");
@@ -50,10 +48,9 @@ export async function GET(request) {
     let vendorlogo = hasvendorLogo
       ? searchParams.get("vendorlogo")?.slice(0, 100)
       : "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png";
-    let imageId = hasimageId ? searchParams.get("imageid")?.slice(0, 100) : "1";
+    let imageId = hasimageId ? searchParams.get("imageid")?.slice(0, 100) : "6";
 
     console.log(imageId);
- 
 
     return new ImageResponse(
       (
@@ -83,7 +80,9 @@ export async function GET(request) {
                 fontFamily: "Inter",
                 letterSpacing: "-0.025em",
                 color: `${
-                  (Number(imageId) === 1 || Number(imageId) === 6) ? "rgb(123,64,8)" : "white"
+                  Number(imageId) === 1 || Number(imageId) === 6
+                    ? "rgb(123,64,8)"
+                    : "white"
                 }`,
                 marginTop: 15,
                 padding: "0 120px",
@@ -112,7 +111,9 @@ export async function GET(request) {
                 letterSpacing: "-0.025em",
                 marginTop: 15,
                 color: `${
-                  (Number(imageId) === 1 || Number(imageId) === 6) ? "rgb(123,64,8)" : "white"
+                  Number(imageId) === 1 || Number(imageId) === 6
+                    ? "rgb(123,64,8)"
+                    : "white"
                 }`,
                 padding: "0 120px",
                 lineHeight: 1.4,
@@ -158,7 +159,13 @@ export async function GET(request) {
                 marginTop: "12px",
               }}
             >
-              <img src={vendorlogo} alt="" width={"30%"} height={"100%"} style={{padding:'10px'}}/>
+              <img
+                src={vendorlogo}
+                alt=""
+                width={"30%"}
+                height={"100%"}
+                style={{ padding: "10px" }}
+              />
 
               <p
                 style={{
@@ -166,7 +173,9 @@ export async function GET(request) {
                   fontStyle: "normal",
                   letterSpacing: "-0.025em",
                   color: `${
-                    (Number(imageId) === 1 || Number(imageId) === 6) ? "rgb(123,64,8)" : "white"
+                    Number(imageId) === 1 || Number(imageId) === 6
+                      ? "rgb(123,64,8)"
+                      : "white"
                   }`,
                   lineHeight: 1.4,
                   whiteSpace: "pre-wrap",
