@@ -1,5 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { PopoverDemo } from "./components/ModalFInal";
 import { FaInstagramSquare, FaWhatsappSquare } from "react-icons/fa";
 import { AuthContext } from "@/context/AuthContext";
@@ -8,19 +9,23 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
 export default function Home() {
-  
   const { baground, category } = useContext(AuthContext);
 
   const [state, setState] = useState({
     title: "",
     description: "",
-    baground: baground,
+    baground: "",
     category: category,
-    vendorLogo: null,
+    vendorLogo: "",
     special: "",
     width: 1080,
     height: 1920,
+    imageId: "",
   });
+
+  // useEffect(() => {
+  //   setState({ ...state, baground: baground });
+  // }, [baground]);
 
   const handleChange = (e) => {
     let name = e.target.name;
@@ -33,7 +38,7 @@ export default function Home() {
     setState({ ...state, [name]: value });
   };
 
-  console.log(state);
+  console.log(state.imageId);
 
   const BgImages = [
     {
@@ -56,36 +61,55 @@ export default function Home() {
       ],
     },
     {
-      "category-image": [
+      "background-image2": [
         {
-          src: "https://neon.ipsator.com/c/image/upload/v1697634895/irctc/post/elements/food/post-food-1.png",
+          src: "https://neon.ipsator.com/c/image/upload/v1697725263/irctc/post/bg/post-post-bg-1.jpg",
           alt: "image4",
           id: 4,
         },
         {
-          src: "https://neon.ipsator.com/c/image/upload/v1697634893/irctc/post/elements/food/post-food-2.png",
-          alt: "image2",
+          src: "https://neon.ipsator.com/c/image/upload/v1697725264/irctc/post/bg/post-post-bg-2.jpg",
+          alt: "image5",
           id: 5,
         },
         {
-          src: "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-3.png",
-          alt: "image3",
+          src: "https://neon.ipsator.com/c/image/upload/v1697725263/irctc/post/bg/post-post-bg-3.jpg",
+          alt: "image6",
           id: 6,
         },
+      ],
+    },
+    {
+      "category-image": [
         {
-          src: "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-4.png",
+          src: "https://neon.ipsator.com/c/image/upload/v1697634895/irctc/post/elements/food/post-food-1.png",
           alt: "image4",
           id: 7,
         },
         {
+          src: "https://neon.ipsator.com/c/image/upload/v1697634893/irctc/post/elements/food/post-food-2.png",
+          alt: "image2",
+          id: 8,
+        },
+        {
+          src: "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-3.png",
+          alt: "image3",
+          id: 9,
+        },
+        {
+          src: "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-4.png",
+          alt: "image4",
+          id: 10,
+        },
+        {
           src: "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png",
           alt: "image5",
-          id: 8,
+          id: 11,
         },
         {
           src: "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-6.png",
           alt: "image6",
-          id: 9,
+          id: 12,
         },
       ],
     },
@@ -98,6 +122,23 @@ export default function Home() {
           <h1 className="font-extrabold mx-auto text-4xl bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">
             Vendor Form
           </h1>
+
+          <div className="flex gap-5 mx-auto">
+            <Button
+              className="border border-gray-500 p-2 rounded-md flex gap-2 items-center bg-gray-100"
+              onClick={() => setState({ ...state, width: 1080, height: 1080 })}
+            >
+              Instagram
+              <FaInstagramSquare className="text-red-500 text-[25px]" />
+            </Button>
+            <Button
+              className="border border-gray-500 p-2 rounded-md flex gap-2 items-center bg-gray-100"
+              onClick={() => setState({ ...state, width: 1080, height: 1920 })}
+            >
+              Whatsapp
+              <FaWhatsappSquare className="text-green-500 text-[25px]" />
+            </Button>
+          </div>
           <Label>Title</Label>
           <Input
             className="border border-gray-500 bg-gray-100"
@@ -124,7 +165,7 @@ export default function Home() {
             onChange={handleChange}
           />
 
-          <Label>Special Text</Label>
+          <Label>Vendor Details</Label>
           <Input
             className="border border-gray-500 bg-gray-100"
             type="text"
@@ -134,45 +175,49 @@ export default function Home() {
           />
 
           <PopoverDemo
-            BgImages={BgImages[0]["baground-image"]}
+            BgImages={
+              state.height === 1920
+                ? BgImages[0]["baground-image"]
+                : BgImages[1]["background-image2"]
+            }
             title={"Baground"}
+            setState={setState}
+            state={state}
           />
 
           <PopoverDemo
-            BgImages={BgImages[1]["category-image"]}
+            BgImages={BgImages[2]["category-image"]}
             title={"Category"}
+            setState={setState}
+            state={state}
           />
-          <div className="flex gap-5 mx-auto">
-            <Button
-              className="border border-gray-500 p-2 rounded-md flex gap-2 items-center bg-gray-100"
-              onClick={() => setState({ ...state, width: 1080, height: 1350 })}
-            >
-              Instagram
-              <FaInstagramSquare className="text-red-500 text-[25px]" />
-            </Button>
-            <Button
-              className="border border-gray-500 p-2 rounded-md flex gap-2 items-center bg-gray-100"
-              onClick={() => setState({ ...state, width: 1080, height: 1920 })}
-            >
-              Whatsapp
-              <FaWhatsappSquare className="text-green-500 text-[25px]" />
-            </Button>
-          </div>
+
           <br />
           <Button className="w-2/5 mx-auto border border-gray-500 p-1 font-bold text-lg text-blue-900 rounded-md flex gap-2 items-center bg-gradient-to-r from-blue-300 to-red-400">
-            Submit
+            Download
           </Button>
           {/* <Image src={baground ?? ''} alt='Image' width={400} height={300}/>
         <Image src={category ?? ''} alt='Image' width={400} height={300}/> */}
         </div>
 
-        <div style={{display:"flex",textAlign:"center",justifyContent:"center",alignItems:"center",width:"100%",margin:"auto",border:"none"}}>
-        
-        <img src={`http://localhost:3000/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}`} alt="pic" width={"100%"}/>
+        <div
+          style={{
+            display: "flex",
+            textAlign: "center",
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            margin: "auto",
+            border: "none",
+          }}
+        >
+          <img
+            src={`http://localhost:3000/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&baground=${state.baground}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}&imageid=${state.imageId}`}
+            alt="pic"
+            width={"100%"}
+          />
         </div>
       </div>
-
-      {/* <Link href={`/api/og?title=have`}>button</Link> */}
     </main>
   );
 }
