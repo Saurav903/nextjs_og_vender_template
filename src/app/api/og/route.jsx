@@ -57,7 +57,7 @@ export async function GET(request) {
       : "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png";
     let imageId = hasimageId ? searchParams.get("imageid")?.slice(0, 100) : "1";
 
-    console.log('SocialMedia',imageId);
+    console.log('vendorlogo',vendorlogo);
 
     return new ImageResponse(
       (
@@ -83,7 +83,7 @@ export async function GET(request) {
           >
             <p
               style={{
-                fontSize: `${SocialMedia=="Whatsapp"? 80 : '50px'}`,
+                fontSize: `${SocialMedia=="Whatsapp"? 80 : 50}`,
                 fontFamily: "Inter",
                 letterSpacing: "-0.025em",
                 color: `${

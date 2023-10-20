@@ -177,7 +177,7 @@ export default function Home() {
             onChange={handleChange}
           />
 
-          <Label>Vendor Logo</Label>
+          <Label>Vendor Logo ( jpg / jpeg / png )</Label>
           <Input
             className="border border-gray-500 bg-gray-100"
             type="file"
@@ -213,9 +213,9 @@ export default function Home() {
           />
 
           <br />
-          <Button className="w-2/5 mx-auto border border-gray-500 p-1 font-bold text-lg text-blue-900 rounded-md flex gap-2 items-center bg-gradient-to-r from-blue-300 to-red-400">
+          <a href="" target="_blank" className="w-2/5 mx-auto border border-gray-500 p-1 font-bold text-lg text-blue-900 rounded-md flex gap-2 justify-center cursor-pointer items-center bg-gradient-to-r from-blue-300 to-red-400">
             Download
-          </Button>
+          </a>
           {/* <Image src={baground ?? ''} alt='Image' width={400} height={300}/>
         <Image src={category ?? ''} alt='Image' width={400} height={300}/> */}
         </div>

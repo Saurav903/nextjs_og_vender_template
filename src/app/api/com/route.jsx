@@ -83,7 +83,7 @@ export async function GET(request) {
                 fontFamily: "Inter",
                 letterSpacing: "-0.025em",
                 color: `${
-                  Number(imageId) === (1 || 6) ? "rgb(123,64,8)" : "white"
+                  (Number(imageId) === 1 || Number(imageId) === 6) ? "rgb(123,64,8)" : "white"
                 }`,
                 marginTop: 15,
                 padding: "0 120px",
@@ -110,9 +110,9 @@ export async function GET(request) {
                 fontSize: 35,
                 fontWeight: 200,
                 letterSpacing: "-0.025em",
-                marginTop: 20,
+                marginTop: 15,
                 color: `${
-                  Number(imageId) === (1 || 6) ? "rgb(123,64,8)" : "white"
+                  (Number(imageId) === 1 || Number(imageId) === 6) ? "rgb(123,64,8)" : "white"
                 }`,
                 padding: "0 120px",
                 lineHeight: 1.4,
@@ -166,7 +166,7 @@ export async function GET(request) {
                   fontStyle: "normal",
                   letterSpacing: "-0.025em",
                   color: `${
-                    Number(imageId) === (1 || 6) ? "rgb(123,64,8)" : "white"
+                    (Number(imageId) === 1 || Number(imageId) === 6) ? "rgb(123,64,8)" : "white"
                   }`,
                   lineHeight: 1.4,
                   whiteSpace: "pre-wrap",
