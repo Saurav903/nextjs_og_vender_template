@@ -57,7 +57,7 @@ export async function GET(request) {
       : "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png";
     let imageId = hasimageId ? searchParams.get("imageid")?.slice(0, 100) : "1";
 
-    console.log('SocialMedia',SocialMedia);
+    console.log('SocialMedia',imageId);
 
     return new ImageResponse(
       (
@@ -78,7 +78,7 @@ export async function GET(request) {
               alignItems: "center",
               width: "70%",
               margin: "auto",
-              marginTop: `${SocialMedia=="Whatsapp"? '150px':'130px'}`,
+              marginTop: `${SocialMedia=="Whatsapp" ? '150px':'130px'}`,
             }}
           >
             <p
@@ -87,7 +87,7 @@ export async function GET(request) {
                 fontFamily: "Inter",
                 letterSpacing: "-0.025em",
                 color: `${
-                  Number(imageId) === (1 || 6) ? "rgb(123,64,8)" : "white"
+                  (Number(imageId) === 1 || Number(imageId) === 6) ? "rgb(123,64,8)" : "white"
                 }`,
                 marginTop: `${SocialMedia=="Whatsapp"? 30 : 15}`,
                 padding: "0 120px",
@@ -116,7 +116,7 @@ export async function GET(request) {
                 letterSpacing: "-0.025em",
                 marginTop: `${SocialMedia=="Whatsapp"? 30:15}`,
                 color: `${
-                  Number(imageId) === (1 || 6) ? "rgb(123,64,8)" : "white"
+                  (Number(imageId) === 1 || Number(imageId) === 6) ? "rgb(123,64,8)" : "white" 
                 }`,
                 padding: "0 120px",
                 lineHeight: 1.4,
@@ -170,7 +170,7 @@ export async function GET(request) {
                   fontStyle: "normal",
                   letterSpacing: "-0.025em",
                   color: `${
-                    Number(imageId) === (1 || 6) ? "rgb(123,64,8)" : "white"
+                    (Number(imageId) === 1 || Number(imageId) === 6) ? "rgb(123,64,8)" : "white"
                   }`,
                   lineHeight: 1.4,
                   whiteSpace: "pre-wrap",
