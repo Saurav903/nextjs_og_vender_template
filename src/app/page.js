@@ -12,6 +12,8 @@ import axios from 'axios';
 export default function Home() {
   const { baground, category } = useContext(AuthContext);
 
+  const [socialMedia,setSocialMedia]=useState('Whatsapp');
+  
   const [state, setState] = useState({
     title: "",
     description: "",
@@ -141,14 +143,16 @@ export default function Home() {
           <div className="flex gap-5 mx-auto">
             <Button
               className="border border-gray-500 p-2 rounded-md flex gap-2 items-center bg-gray-100"
-              onClick={() => setState({ ...state, width: 1080, height: 1080 })}
+              onClick={
+                () => setState({ ...state, width: 1080, height: 1080 }, setSocialMedia('Instagram'))
+              }
             >
               Instagram
               <FaInstagramSquare className="text-red-500 text-[25px]" />
             </Button>
             <Button
               className="border border-gray-500 p-2 rounded-md flex gap-2 items-center bg-gray-100"
-              onClick={() => setState({ ...state, width: 1080, height: 1920 })}
+              onClick={() => setState({ ...state, width: 1080, height: 1920 }, setSocialMedia('Whatsapp'))}
             >
               Whatsapp
               <FaWhatsappSquare className="text-green-500 text-[25px]" />
@@ -180,7 +184,7 @@ export default function Home() {
             onChange={handleChange}
           />
 
-          <Label>Vendor Details</Label>
+          <Label>Special Text</Label>
           <Input
             className="border border-gray-500 bg-gray-100"
             type="text"
@@ -227,7 +231,7 @@ export default function Home() {
           }}
         >
           <img
-            src={`http://localhost:3000/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&baground=${state.baground}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}&imageid=${state.imageId}`}
+            src={`http://localhost:3000/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&baground=${state.baground}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}&imageid=${state.imageId}&socialMedia=${socialMedia}`}
             alt="pic"
             width={"100%"}
           />
