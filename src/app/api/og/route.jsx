@@ -18,6 +18,7 @@ export async function GET(request) {
 
     const { searchParams } = new URL(request.url);
 
+
     // ?title=<title>
     const hasTitle = searchParams.get("title");
     const hasDesc = searchParams.get("description");
@@ -28,6 +29,8 @@ export async function GET(request) {
     const hasCategory = searchParams.get("category");
     let hasvendorLogo = searchParams.get("vendorlogo");
     let hasimageId = searchParams.get("imageid");
+    let hasSocialMedia = searchParams.get("socialMedia");
+    let SocialMedia = hasSocialMedia ? searchParams.get("socialMedia")?.slice(0, 100) : "Whatsapp";
     const title = hasTitle
       ? searchParams.get("title")?.slice(0, 100)
       : " Navratri Vrat Special";
@@ -40,9 +43,12 @@ export async function GET(request) {
       : "Order Navratri specials from our restaurants now!";
     const width = hasWidth ? searchParams.get("width")?.slice(0, 100) : 1080;
     const height = hasHeight ? searchParams.get("height")?.slice(0, 100) : 1035;
+
+    const SocialMedBgImage=SocialMedia=="Whatsapp" ? "https://neon.ipsator.com/c/image/upload/v1697634854/irctc/post/bg/instagram-story/post-instagram-story-bg-2.jpg" : "https://neon.ipsator.com/c/image/upload/v1697725263/irctc/post/bg/post-post-bg-1.jpg"
+
     const background = hasBackground
       ? searchParams.get("baground")?.slice(0, 500)
-      : "https://neon.ipsator.com/c/image/upload/v1697634854/irctc/post/bg/instagram-story/post-instagram-story-bg-2.jpg";
+      : SocialMedBgImage;
     const category = hasCategory
       ? searchParams.get("category")?.slice(0, 500)
       : "https://neon.ipsator.com/c/image/upload/v1697634895/irctc/post/elements/food/post-food-1.png";
@@ -51,7 +57,7 @@ export async function GET(request) {
       : "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png";
     let imageId = hasimageId ? searchParams.get("imageid")?.slice(0, 100) : "1";
 
-    console.log(imageId);
+    console.log('vendorlogo',vendorlogo);
 
     return new ImageResponse(
       (
@@ -72,18 +78,18 @@ export async function GET(request) {
               alignItems: "center",
               width: "70%",
               margin: "auto",
-              marginTop: "150px",
+              marginTop: `${SocialMedia=="Whatsapp" ? '150px':'130px'}`,
             }}
           >
             <p
               style={{
-                fontSize: 80,
+                fontSize: `${SocialMedia=="Whatsapp"? 80 : 50}`,
                 fontFamily: "Inter",
                 letterSpacing: "-0.025em",
                 color: `${
-                  Number(imageId) === (1 || 6) ? "rgb(123,64,8)" : "white"
+                  (Number(imageId) === 1 || Number(imageId) === 6) ? "rgb(123,64,8)" : "white"
                 }`,
-                marginTop: 30,
+                marginTop: `${SocialMedia=="Whatsapp"? 30 : 15}`,
                 padding: "0 120px",
                 lineHeight: 1.2,
                 whiteSpace: "pre-wrap",
@@ -105,12 +111,12 @@ export async function GET(request) {
           >
             <p
               style={{
-                fontSize: 45,
+                fontSize: `${SocialMedia=="Whatsapp"? 45 : 35}`,
                 fontWeight: 200,
                 letterSpacing: "-0.025em",
-                marginTop: 30,
+                marginTop: `${SocialMedia=="Whatsapp"? 30:15}`,
                 color: `${
-                  Number(imageId) === (1 || 6) ? "rgb(123,64,8)" : "white"
+                  (Number(imageId) === 1 || Number(imageId) === 6) ? "rgb(123,64,8)" : "white" 
                 }`,
                 padding: "0 120px",
                 lineHeight: 1.4,
@@ -136,9 +142,9 @@ export async function GET(request) {
               src={category}
               alt="dd"
               style={{
-                marginTop: "400px",
-                width: "600px",
-                height: "400px",
+                marginTop: `${SocialMedia=="Whatsapp"? "400px":"160px"}`,
+                width: `${SocialMedia=="Whatsapp"? "600px":"450px"}`,
+                height: `${SocialMedia=="Whatsapp"? "400px":"350px"}`,
               }}
             />
 
@@ -148,15 +154,15 @@ export async function GET(request) {
                 textAlign: "center",
                 justifyContent: "center",
                 alignItems: "center",
-                width: "99%",
-                height: "300px",
+                width: "100%",
+                height: `${SocialMedia=="Whatsapp"? "300px":"200px"}`,
                 margin: "auto",
                 backgroundColor: "rgba(255, 255, 255, 0.1)",
 
-                marginTop: "255px",
+                marginTop: `${SocialMedia=="Whatsapp"? "255px":"20px"}` ,
               }}
             >
-              <img src={vendorlogo} alt="" width={"30%"} />
+              <img src={vendorlogo} alt="" width={"25%"} height={`${SocialMedia=="Whatsapp"? "80%":"100%"}`} style={{padding:'10px'}}/>
 
               <p
                 style={{
@@ -164,7 +170,7 @@ export async function GET(request) {
                   fontStyle: "normal",
                   letterSpacing: "-0.025em",
                   color: `${
-                    Number(imageId) === (1 || 6) ? "rgb(123,64,8)" : "white"
+                    (Number(imageId) === 1 || Number(imageId) === 6) ? "rgb(123,64,8)" : "white"
                   }`,
                   lineHeight: 1.4,
                   whiteSpace: "pre-wrap",
