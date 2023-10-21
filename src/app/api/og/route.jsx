@@ -81,6 +81,7 @@ export async function GET(request) {
             <p
               style={{
                 fontSize: 80,
+
                 // fontFamily: "Inter",
                 letterSpacing: "-0.025em",
                 color: `${
