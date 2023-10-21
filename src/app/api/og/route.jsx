@@ -3,18 +3,18 @@ import { ImageResponse } from "next/server";
 // No need to install it.
 
 export const runtime = "edge";
-const fontDataRegular = fetch(
-  new URL("../../../../public/Inter-Bold.ttf", import.meta.url)
-).then((res) => res.arrayBuffer());
-const fontDataBolder = fetch(
-  new URL("../../../../public/Inter-Regular.ttf", import.meta.url)
-).then((res) => res.arrayBuffer());
+// const fontDataRegular = fetch(
+//   new URL("../../../../public/Inter-Bold.ttf", import.meta.url)
+// ).then((res) => res.arrayBuffer());
+// const fontDataBolder = fetch(
+//   new URL("../../../../public/Inter-Regular.ttf", import.meta.url)
+// ).then((res) => res.arrayBuffer());
 export async function GET(request) {
   try {
-    const [regularfont, bolderfont] = await Promise.all([
-      fontDataRegular,
-      fontDataBolder,
-    ]);
+    // const [regularfont, bolderfont] = await Promise.all([
+    //   fontDataRegular,
+    //   fontDataBolder,
+    // ]);
 
     const { searchParams } = new URL(request.url);
 
@@ -44,15 +44,10 @@ export async function GET(request) {
       : "Order Navratri specials from our restaurants now!";
     const width = hasWidth ? searchParams.get("width")?.slice(0, 100) : 1080;
     const height = hasHeight ? searchParams.get("height")?.slice(0, 100) : 1035;
-
-    const SocialMedBgImage =
-      SocialMedia == "Whatsapp"
-        ? "https://neon.ipsator.com/c/image/upload/v1697634854/irctc/post/bg/instagram-story/post-instagram-story-bg-2.jpg"
-        : "https://neon.ipsator.com/c/image/upload/v1697725263/irctc/post/bg/post-post-bg-1.jpg";
-
+    
     const background = hasBackground
       ? searchParams.get("baground")?.slice(0, 500)
-      : SocialMedBgImage;
+      : "https://neon.ipsator.com/c/image/upload/v1697634854/irctc/post/bg/instagram-story/post-instagram-story-bg-2.jpg";
     const category = hasCategory
       ? searchParams.get("category")?.slice(0, 500)
       : "https://neon.ipsator.com/c/image/upload/v1697634895/irctc/post/elements/food/post-food-1.png";
@@ -60,8 +55,6 @@ export async function GET(request) {
       ? searchParams.get("vendorlogo")?.slice(0, 100)
       : "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png";
     let imageId = hasimageId ? searchParams.get("imageid")?.slice(0, 100) : "1";
-
-    console.log("vendorlogo", vendorlogo);
 
     return new ImageResponse(
       (
@@ -82,20 +75,20 @@ export async function GET(request) {
               alignItems: "center",
               width: "70%",
               margin: "auto",
-              marginTop: `${SocialMedia == "Whatsapp" ? "150px" : "130px"}`,
+              marginTop: "150px",
             }}
           >
             <p
               style={{
-                fontSize: `${SocialMedia == "Whatsapp" ? 80 : 50}`,
-                fontFamily: "Inter",
+                fontSize: 80,
+                // fontFamily: "Inter",
                 letterSpacing: "-0.025em",
                 color: `${
                   Number(imageId) === 1 || Number(imageId) === 6
                     ? "rgb(123,64,8)"
                     : "white"
                 }`,
-                marginTop: `${SocialMedia == "Whatsapp" ? 30 : 15}`,
+                marginTop: 30,
                 padding: "0 120px",
                 lineHeight: 1.2,
                 whiteSpace: "pre-wrap",
@@ -117,10 +110,10 @@ export async function GET(request) {
           >
             <p
               style={{
-                fontSize: `${SocialMedia == "Whatsapp" ? 45 : 35}`,
+                fontSize: 45,
                 fontWeight: 200,
                 letterSpacing: "-0.025em",
-                marginTop: `${SocialMedia == "Whatsapp" ? 30 : 15}`,
+                marginTop: 30,
                 color: `${
                   Number(imageId) === 1 || Number(imageId) === 6
                     ? "rgb(123,64,8)"
@@ -150,9 +143,9 @@ export async function GET(request) {
               src={category}
               alt="dd"
               style={{
-                marginTop: `${SocialMedia == "Whatsapp" ? "400px" : "160px"}`,
-                width: `${SocialMedia == "Whatsapp" ? "600px" : "450px"}`,
-                height: `${SocialMedia == "Whatsapp" ? "400px" : "350px"}`,
+                marginTop: "400px",
+                width: "600px",
+                height: "400px",
               }}
             />
 
@@ -163,18 +156,18 @@ export async function GET(request) {
                 justifyContent: "center",
                 alignItems: "center",
                 width: "100%",
-                height: `${SocialMedia == "Whatsapp" ? "300px" : "200px"}`,
+                height: "300px",
                 margin: "auto",
                 backgroundColor: "rgba(255, 255, 255, 0.1)",
 
-                marginTop: `${SocialMedia == "Whatsapp" ? "255px" : "20px"}`,
+                marginTop: "255px",
               }}
             >
               <img
                 src={vendorlogo}
                 alt=""
                 width={"25%"}
-                height={`${SocialMedia == "Whatsapp" ? "80%" : "100%"}`}
+                height="80%"
                 style={{ padding: "10px" }}
               />
 
@@ -203,20 +196,20 @@ export async function GET(request) {
       {
         width: width,
         height: height,
-        fonts: [
-          {
-            name: "Inter",
-            data: regularfont,
-            style: "normal",
-            weight: 400,
-          },
-          {
-            name: "Inter",
-            data: bolderfont,
-            style: "normal",
-            weight: 800,
-          },
-        ],
+        // fonts: [
+        //   {
+        //     name: "Inter",
+        //     data: regularfont,
+        //     style: "normal",
+        //     weight: 400,
+        //   },
+        //   {
+        //     name: "Inter",
+        //     data: bolderfont,
+        //     style: "normal",
+        //     weight: 800,
+        //   },
+        // ],
       }
     );
   } catch (e) {

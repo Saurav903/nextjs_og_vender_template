@@ -3,18 +3,18 @@ import { ImageResponse } from "next/server";
 // No need to install it.
 
 export const runtime = "edge";
-const fontDataRegular = fetch(
-  new URL("../../../../public/Inter-Bold.ttf", import.meta.url)
-).then((res) => res.arrayBuffer());
-const fontDataBolder = fetch(
-  new URL("../../../../public/Inter-Regular.ttf", import.meta.url)
-).then((res) => res.arrayBuffer());
+// const fontDataRegular = fetch(
+//   new URL("../../../../public/Inter-Bold.ttf", import.meta.url)
+// ).then((res) => res.arrayBuffer());
+// const fontDataBolder = fetch(
+//   new URL("../../../../public/Inter-Regular.ttf", import.meta.url)
+// ).then((res) => res.arrayBuffer());
 export async function GET(request) {
   try {
-    const [regularfont, bolderfont] = await Promise.all([
-      fontDataRegular,
-      fontDataBolder,
-    ]);
+    // const [regularfont, bolderfont] = await Promise.all([
+    //   fontDataRegular,
+    //   fontDataBolder,
+    // ]);
 
     const { searchParams } = new URL(request.url);
 
@@ -41,7 +41,7 @@ export async function GET(request) {
     const height = hasHeight ? searchParams.get("height")?.slice(0, 100) : 1035;
     const background = hasBackground
       ? searchParams.get("baground")?.slice(0, 500)
-      : "https://neon.ipsator.com/c/image/upload/v1697725263/irctc/post/bg/post-post-bg-1.jpg";
+      : "https://neon.ipsator.com/c/image/upload/v1697725264/irctc/post/bg/post-post-bg-2.jpg";
     const category = hasCategory
       ? searchParams.get("category")?.slice(0, 500)
       : "https://neon.ipsator.com/c/image/upload/v1697634895/irctc/post/elements/food/post-food-1.png";
@@ -50,7 +50,6 @@ export async function GET(request) {
       : "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png";
     let imageId = hasimageId ? searchParams.get("imageid")?.slice(0, 100) : "6";
 
-    console.log(imageId);
 
     return new ImageResponse(
       (
@@ -77,7 +76,7 @@ export async function GET(request) {
             <p
               style={{
                 fontSize: 50,
-                fontFamily: "Inter",
+                // fontFamily: "Inter",
                 letterSpacing: "-0.025em",
                 color: `${
                   Number(imageId) === 1 || Number(imageId) === 6
@@ -192,20 +191,20 @@ export async function GET(request) {
       {
         width: width,
         height: height,
-        fonts: [
-          {
-            name: "Inter",
-            data: regularfont,
-            style: "normal",
-            weight: 400,
-          },
-          {
-            name: "Inter",
-            data: bolderfont,
-            style: "normal",
-            weight: 800,
-          },
-        ],
+        // fonts: [
+        //   {
+        //     name: "Inter",
+        //     data: regularfont,
+        //     style: "normal",
+        //     weight: 400,
+        //   },
+        //   {
+        //     name: "Inter",
+        //     data: bolderfont,
+        //     style: "normal",
+        //     weight: 800,
+        //   },
+        // ],
       }
     );
   } catch (e) {
