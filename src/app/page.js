@@ -159,6 +159,7 @@ export default function Home() {
                   height: 1080,
                   baground:
                     "https://neon.ipsator.com/c/image/upload/v1697725263/irctc/post/bg/post-post-bg-3.jpg",
+                  imageId: 6,
                 })
               }
             >
@@ -174,6 +175,7 @@ export default function Home() {
                   height: 1920,
                   baground:
                     "https://neon.ipsator.com/c/image/upload/v1697634853/irctc/post/bg/instagram-story/post-instagram-story-bg-1.jpg",
+                  imageId: 2,
                 })
               }
             >
