@@ -7,6 +7,7 @@ import { AuthContext } from "@/context/AuthContext";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import axios from "axios";
 
 export default function Home() {
   const { baground, category } = useContext(AuthContext);
@@ -27,18 +28,43 @@ export default function Home() {
   //   setState({ ...state, baground: baground });
   // }, [baground]);
 
+  const uploadImageAndGetURL = (imageFile) => {
+    return new Promise(async (resolve, reject) => {
+      const formData = new FormData();
+      formData.append("image", imageFile);
+      const apiKey = "e434cd7b2acad31fec51625d4ac3c53f";
+
+      try {
+        const response = await axios.post(
+          `https://api.imgbb.com/1/upload?key=${apiKey}`,
+          formData
+        );
+        const imageURL = response.data.data.url;
+        resolve(imageURL);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  };
+
   const handleChange = (e) => {
     let name = e.target.name;
     let value;
     if (name == "vendorLogo") {
-      value = URL.createObjectURL(e.target.files[0]);
+      const imageFile = e.target.files[0];
+      uploadImageAndGetURL(imageFile)
+        .then((url) => {
+          console.log("URL:", url);
+          setState({ ...state, [name]: url });
+        })
+        .catch((error) => {
+          console.error("Image upload failed:", error);
+        });
     } else {
       value = e.target.value;
     }
     setState({ ...state, [name]: value });
   };
-
-  console.log(state.imageId);
 
   const BgImages = [
     {
@@ -210,7 +236,7 @@ export default function Home() {
 
           <br />
           <a
-            href={`https://opengraph-lake.vercel.app/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&baground=${state.baground}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}&imageid=${state.imageId}`}
+            href={`http://opengraph-lake.vercel.app/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&baground=${state.baground}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}&imageid=${state.imageId}`}
             target="_blank"
             className="w-2/5 mx-auto border border-gray-500 p-1 font-bold text-lg text-blue-900 rounded-md flex gap-2 justify-center cursor-pointer items-center bg-gradient-to-r from-blue-300 to-red-400"
           >
@@ -233,7 +259,7 @@ export default function Home() {
             }}
           >
             <img
-              src={`https://opengraph-lake.vercel.app/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&baground=${state.baground}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}&imageid=${state.imageId}`}
+              src={`http://opengraph-lake.vercel.app/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&baground=${state.baground}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}&imageid=${state.imageId}`}
               alt="pic"
               width={"100%"}
             />
@@ -251,7 +277,7 @@ export default function Home() {
             }}
           >
             <img
-              src={`https://opengraph-lake.vercel.app/api/com?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&baground=${state.baground}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}&imageid=${state.imageId}`}
+              src={`http://opengraph-lake.vercel.app/api/com?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&baground=${state.baground}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}&imageid=${state.imageId}`}
               alt="pic"
               width={"100%"}
             />

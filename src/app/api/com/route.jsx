@@ -41,7 +41,7 @@ export async function GET(request) {
     const height = hasHeight ? searchParams.get("height")?.slice(0, 100) : 1035;
     const background = hasBackground
       ? searchParams.get("baground")?.slice(0, 500)
-      : "https://neon.ipsator.com/c/image/upload/v1697725263/irctc/post/bg/post-post-bg-1.jpg";
+      : "https://neon.ipsator.com/c/image/upload/v1697725264/irctc/post/bg/post-post-bg-2.jpg";
     const category = hasCategory
       ? searchParams.get("category")?.slice(0, 500)
       : "https://neon.ipsator.com/c/image/upload/v1697634895/irctc/post/elements/food/post-food-1.png";
@@ -50,7 +50,6 @@ export async function GET(request) {
       : "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png";
     let imageId = hasimageId ? searchParams.get("imageid")?.slice(0, 100) : "6";
 
-    console.log(imageId);
 
     return new ImageResponse(
       (
