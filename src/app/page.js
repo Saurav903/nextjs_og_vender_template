@@ -8,10 +8,12 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import axios from "axios";
+import Loading from "./loading";
 
 export default function Home() {
   const { baground, category } = useContext(AuthContext);
 
+  const [load, setLoad] = useState(false);
   const [state, setState] = useState({
     title: "",
     description: "",
@@ -51,11 +53,13 @@ export default function Home() {
     let name = e.target.name;
     let value;
     if (name == "vendorLogo") {
+      setLoad(true);
       const imageFile = e.target.files[0];
       uploadImageAndGetURL(imageFile)
         .then((url) => {
           console.log("URL:", url);
           setState({ ...state, [name]: url });
+          setLoad(false);
         })
         .catch((error) => {
           console.error("Image upload failed:", error);
@@ -201,7 +205,7 @@ export default function Home() {
             onChange={handleChange}
           />
 
-          <Label>Vendor Logo</Label>
+          <Label>Vendor Logo (jpg,png,jpeg) {load ? <Loading /> : ""}</Label>
           <Input
             className="border border-gray-500 bg-gray-100"
             type="file"
@@ -239,7 +243,7 @@ export default function Home() {
           <br />
           {state.height === 1920 ? (
             <a
-              href={`http://opengraph-lake.vercel.app/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&baground=${state.baground}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}&imageid=${state.imageId}`}
+              href={`http://localhost:3000/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&baground=${state.baground}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}&imageid=${state.imageId}`}
               target="_blank"
               className="w-2/5 mx-auto border border-gray-500 p-1 font-bold text-lg text-blue-900 rounded-md flex gap-2 justify-center cursor-pointer items-center bg-gradient-to-r from-blue-300 to-red-400"
             >
@@ -247,7 +251,7 @@ export default function Home() {
             </a>
           ) : (
             <a
-              href={`http://opengraph-lake.vercel.app/api/com?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&baground=${state.baground}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}&imageid=${state.imageId}`}
+              href={`http://localhost:3000/api/com?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&baground=${state.baground}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}&imageid=${state.imageId}`}
               target="_blank"
               className="w-2/5 mx-auto border border-gray-500 p-1 font-bold text-lg text-blue-900 rounded-md flex gap-2 justify-center cursor-pointer items-center bg-gradient-to-r from-blue-300 to-red-400"
             >
@@ -271,7 +275,16 @@ export default function Home() {
             }}
           >
             <img
-              src={`http://opengraph-lake.vercel.app/api/og?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&baground=${state.baground}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}&imageid=${state.imageId}`}
+              src={`http://localhost:3000/api/og?title=${
+                state.title
+              }&description=${state.description}&width=${state.width}&height=${
+                state.height
+              }&baground=${state.baground}&category=${state.category}&special=${
+                state.special
+              }&vendorlogo=${
+                state.vendorLogo ||
+                "https://neon.ipsator.com/c/image/upload/v1697634893/irctc/post/elements/food/post-food-2.png"
+              }&imageid=${state.imageId}`}
               alt="pic"
               width={"100%"}
             />
@@ -289,7 +302,16 @@ export default function Home() {
             }}
           >
             <img
-              src={`http://opengraph-lake.vercel.app/api/com?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&baground=${state.baground}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}&imageid=${state.imageId}`}
+              src={`http://localhost:3000/api/com?title=${
+                state.title
+              }&description=${state.description}&width=${state.width}&height=${
+                state.height
+              }&baground=${state.baground}&category=${state.category}&special=${
+                state.special
+              }&vendorlogo=${
+                state.vendorLogo ||
+                "https://neon.ipsator.com/c/image/upload/v1697634893/irctc/post/elements/food/post-food-2.png"
+              }&imageid=${state.imageId}`}
               alt="pic"
               width={"100%"}
             />

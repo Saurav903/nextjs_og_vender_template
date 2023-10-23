@@ -44,7 +44,7 @@ export async function GET(request) {
       : "Order Navratri specials from our restaurants now!";
     const width = hasWidth ? searchParams.get("width")?.slice(0, 100) : 1080;
     const height = hasHeight ? searchParams.get("height")?.slice(0, 100) : 1035;
-    
+
     const background = hasBackground
       ? searchParams.get("baground")?.slice(0, 500)
       : "https://neon.ipsator.com/c/image/upload/v1697634854/irctc/post/bg/instagram-story/post-instagram-story-bg-2.jpg";
@@ -69,12 +69,12 @@ export async function GET(request) {
         >
           <div
             style={{
+              width: "70%",
+              margin: "auto",
               display: "flex",
               textAlign: "center",
               justifyContent: "center",
               alignItems: "center",
-              width: "70%",
-              margin: "auto",
               marginTop: "150px",
             }}
           >
@@ -93,6 +93,7 @@ export async function GET(request) {
                 padding: "0 120px",
                 lineHeight: 1.2,
                 whiteSpace: "pre-wrap",
+                minHeight: "200px",
               }}
             >
               {title}
@@ -123,6 +124,7 @@ export async function GET(request) {
                 padding: "0 120px",
                 lineHeight: 1.4,
                 whiteSpace: "pre-wrap",
+                minHeight: "150px",
               }}
             >
               {description}
@@ -157,11 +159,11 @@ export async function GET(request) {
                 justifyContent: "center",
                 alignItems: "center",
                 width: "100%",
-                height: "300px",
+                minHeight: "320px",
                 margin: "auto",
                 backgroundColor: "rgba(255, 255, 255, 0.1)",
 
-                marginTop: "255px",
+                marginTop: "200px",
               }}
             >
               <img

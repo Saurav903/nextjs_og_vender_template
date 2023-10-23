@@ -50,7 +50,6 @@ export async function GET(request) {
       : "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png";
     let imageId = hasimageId ? searchParams.get("imageid")?.slice(0, 100) : "6";
 
-
     return new ImageResponse(
       (
         <div
@@ -64,12 +63,12 @@ export async function GET(request) {
         >
           <div
             style={{
+              width: "70%",
+              margin: "auto",
               display: "flex",
               textAlign: "center",
               justifyContent: "center",
               alignItems: "center",
-              width: "70%",
-              margin: "auto",
               marginTop: "130px",
             }}
           >
