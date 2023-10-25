@@ -13,22 +13,22 @@ export async function GET(request) {
     const hasSpecial = searchParams.get("special");
     const hasWidth = searchParams.get("width");
     const hasHeight = searchParams.get("height");
-    const hasBackground = searchParams.get("background")?.slice(0, 2);
-    const hasCategory = searchParams.get("category")?.slice(0, 2);
+    const hasBackground = searchParams.get("background");
+    const hasCategory = searchParams.get("category");
     let hasvendorLogo = searchParams.get("vendorlogo");
 
     const title = hasTitle
-      ? searchParams.get("title")?.slice(0, 100)
+      ? searchParams.get("title")
       : " Navratri Vrat Special";
 
     const description = hasDesc
-      ? searchParams.get("description")?.slice(0, 100)
+      ? searchParams.get("description")
       : "Sabudana Khichdi, Upwas thali & More";
     const special = hasSpecial
-      ? searchParams.get("special")?.slice(0, 100)
+      ? searchParams.get("special")
       : "Order Navratri specials from our restaurants now!";
-    const width = hasWidth ? searchParams.get("width")?.slice(0, 100) : 1080;
-    const height = hasHeight ? searchParams.get("height")?.slice(0, 100) : 1920;
+    const width = hasWidth ? searchParams.get("width") : 1080;
+    const height = hasHeight ? searchParams.get("height") : 1920;
 
     // background image data
     let backgroundId = Number(hasBackground) || 1;
@@ -49,7 +49,7 @@ export async function GET(request) {
 
     // vendor logo
     let vendorlogo = hasvendorLogo
-      ? searchParams.get("vendorlogo")?.slice(0, 100)
+      ? searchParams.get("vendorlogo")
       : "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png";
 
     return new ImageResponse(

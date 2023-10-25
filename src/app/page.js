@@ -16,7 +16,7 @@ export default function Home() {
     width: 1080,
     height: 1920,
   });
-
+  
   return (
     <main className="p-20 bg-gradient-to-r from-red-300 via-yellow-300 to-blue-300">
       <div className="flex justify-between w-full gap-10 p-10">

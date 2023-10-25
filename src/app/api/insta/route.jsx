@@ -13,22 +13,22 @@ export async function GET(request) {
     const hasSpecial = searchParams.get("special");
     const hasWidth = searchParams.get("width");
     const hasHeight = searchParams.get("height");
-    const hasBackground = searchParams.get("background").slice(0, 2);
-    const hasCategory = searchParams.get("category").slice(0, 2);
+    const hasBackground = searchParams.get("background");
+    const hasCategory = searchParams.get("category");
     let hasvendorLogo = searchParams.get("vendorlogo");
 
     const title = hasTitle
-      ? searchParams.get("title")?.slice(0, 100)
+      ? searchParams.get("title")
       : "Navratri Vrat Special";
 
     const description = hasDesc
-      ? searchParams.get("description")?.slice(0, 100)
+      ? searchParams.get("description")
       : "Sabudana Khichdi, Upwas thali & More";
     const special = hasSpecial
-      ? searchParams.get("special")?.slice(0, 100)
+      ? searchParams.get("special")
       : "Order Navratri specials from our restaurants now!";
-    const width = hasWidth ? searchParams.get("width")?.slice(0, 100) : 1080;
-    const height = hasHeight ? searchParams.get("height")?.slice(0, 100) : 1035;
+    const width = hasWidth ? searchParams.get("width") : 1080;
+    const height = hasHeight ? searchParams.get("height") : 1035;
 
     // background image data
     let backgroundId = Number(hasBackground) || 6;
@@ -47,7 +47,7 @@ export async function GET(request) {
         ? categoryData[0].src
         : "https://neon.ipsator.com/c/image/upload/v1697634895/irctc/post/elements/food/post-food-1.png";
     let vendorlogo = hasvendorLogo
-      ? searchParams.get("vendorlogo")?.slice(0, 100)
+      ? searchParams.get("vendorlogo")
       : "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png";
 
     return new ImageResponse(
@@ -75,7 +75,6 @@ export async function GET(request) {
             <p
               style={{
                 fontSize: 50,
-                // fontFamily: "Inter",
                 letterSpacing: "-0.025em",
                 color: `${
                   backgroundId === 1 || backgroundId === 6
@@ -138,7 +137,6 @@ export async function GET(request) {
               alt="dd"
               style={{
                 marginTop: "160px",
-
                 height: "350px",
               }}
             />
@@ -150,17 +148,19 @@ export async function GET(request) {
                 justifyContent: "center",
                 alignItems: "center",
                 width: "100%",
-                height: "200px",
+                height: "240px",
                 margin: "auto",
+                gap:"10px",
                 // padding:'3px',
                 backgroundColor: "rgba(255, 255, 255, 0.1)",
-                marginTop: "12px",
+                marginTop: "15px",
               }}
             >
               <img
                 src={vendorlogo}
                 alt=""
                 width={"30%"}
+                height={"100%"}
                 style={{ padding: "10px" }}
               />
 
@@ -189,20 +189,6 @@ export async function GET(request) {
       {
         width: width,
         height: height,
-        // fonts: [
-        //   {
-        //     name: "Inter",
-        //     data: regularfont,
-        //     style: "normal",
-        //     weight: 400,
-        //   },
-        //   {
-        //     name: "Inter",
-        //     data: bolderfont,
-        //     style: "normal",
-        //     weight: 800,
-        //   },
-        // ],
       }
     );
   } catch (e) {

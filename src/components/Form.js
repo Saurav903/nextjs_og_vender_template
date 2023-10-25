@@ -28,6 +28,15 @@ const Form = ({ setState, state }) => {
     }
     setState({ ...state, [name]: value });
   };
+
+  const handleSocailMedia=(width,height,background,imageId) =>
+       setState({
+         ...state,
+         width,
+         height,
+         background,
+         imageId,
+  })
   
   return (
     <div className="flex flex-col w-full h-full gap-5 px-20 py-12 mx-auto border border-gray-400 rounded-lg bg-gradient-to-r from-blue-200 to-red-200">
@@ -37,30 +46,16 @@ const Form = ({ setState, state }) => {
 
       <div className="flex gap-5 mx-auto">
         <Button
-          onClick={() =>
-            setState({
-              ...state,
-              width: 1080,
-              height: 1080,
-              background:
-                "https://neon.ipsator.com/c/image/upload/v1697725263/irctc/post/bg/post-post-bg-3.jpg",
-              imageId: 6,
-            })
+          onClick={
+            ()=>handleSocailMedia(1080,1080,"https://neon.ipsator.com/c/image/upload/v1697725263/irctc/post/bg/post-post-bg-3.jpg",6)
           }
         >
           Instagram
           <FaInstagramSquare className="text-red-500 text-[25px]" />
         </Button>
         <Button
-          onClick={() =>
-            setState({
-              ...state,
-              width: 1080,
-              height: 1920,
-              background:
-                "https://neon.ipsator.com/c/image/upload/v1697634853/irctc/post/bg/instagram-story/post-instagram-story-bg-1.jpg",
-              imageId: 2,
-            })
+          onClick={
+            ()=>handleSocailMedia(1080,1920,"https://neon.ipsator.com/c/image/upload/v1697634853/irctc/post/bg/instagram-story/post-instagram-story-bg-1.jpg",2)
           }
         >
           Whatsapp
@@ -74,7 +69,7 @@ const Form = ({ setState, state }) => {
         name="title"
         placeholder="Please enter a title"
         onChange={handleChange}
-        maxLength={25}
+        maxLength={21}
       />
 
       <Label>Sub Title</Label>
@@ -101,7 +96,7 @@ const Form = ({ setState, state }) => {
         name="special"
         placeholder="Please enter special text"
         onChange={handleChange}
-        maxLength={30}
+        maxLength={60}
       />
 
       <PopoverDemo
