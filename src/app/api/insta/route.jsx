@@ -19,7 +19,7 @@ export async function GET(request) {
 
     const title = hasTitle
       ? searchParams.get("title")?.slice(0, 100)
-      : " Navratri Vrat Special";
+      : "Navratri Vrat Special";
 
     const description = hasDesc
       ? searchParams.get("description")?.slice(0, 100)

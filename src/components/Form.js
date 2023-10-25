@@ -6,26 +6,9 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { whatsappImage, instaImage, categoryImage } from "@/app/utils/data";
-import axios from "axios";
+import { uploadImageAndGetURL } from "@/Server/server";
 
 const Form = ({ setState, state }) => {
-  const uploadImageAndGetURL = (imageFile) => {
-    return new Promise(async (resolve, reject) => {
-      const formData = new FormData();
-      formData.append("image", imageFile);
-
-      try {
-        const response = await axios.post(
-          `https://api.imgbb.com/1/upload?key=${process.env.NEXT_PUBLIC_IMAGE_API}`,
-          formData
-        );
-        const imageURL = response.data.data.url;
-        resolve(imageURL);
-      } catch (error) {
-        reject(error);
-      }
-    });
-  };
 
   const handleChange = (e) => {
     let name = e.target.name;
@@ -45,15 +28,15 @@ const Form = ({ setState, state }) => {
     }
     setState({ ...state, [name]: value });
   };
+  
   return (
-    <div className="w-full h-full py-12 border border-gray-400 flex flex-col px-20 mx-auto gap-5 rounded-lg bg-gradient-to-r from-blue-200 to-red-200">
-      <h1 className="font-extrabold mx-auto text-4xl bg-clip-text text-transparent bg-gradient-to-r from-black to-blue-600">
+    <div className="flex flex-col w-full h-full gap-5 px-20 py-12 mx-auto border border-gray-400 rounded-lg bg-gradient-to-r from-blue-200 to-red-200">
+      <h1 className="mx-auto text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-black to-blue-600">
         Vendor Form
       </h1>
 
       <div className="flex gap-5 mx-auto">
         <Button
-          className="border border-gray-500 p-2 rounded-md flex gap-2 items-center bg-gray-100"
           onClick={() =>
             setState({
               ...state,
@@ -69,7 +52,6 @@ const Form = ({ setState, state }) => {
           <FaInstagramSquare className="text-red-500 text-[25px]" />
         </Button>
         <Button
-          className="border border-gray-500 p-2 rounded-md flex gap-2 items-center bg-gray-100"
           onClick={() =>
             setState({
               ...state,
@@ -87,25 +69,26 @@ const Form = ({ setState, state }) => {
       </div>
       <Label>Title</Label>
       <Input
-        className="border border-gray-500 bg-gray-100"
+        value={state.title}
         type="text"
         name="title"
         placeholder="Please enter a title"
         onChange={handleChange}
+        maxLength={25}
       />
 
       <Label>Sub Title</Label>
       <Input
-        className="border border-gray-500  bg-gray-100"
+        value={state.description}
         type="text"
         name="description"
         placeholder="Please enter a description"
         onChange={handleChange}
+        maxLength={25}
       />
 
       <Label>Vendor Logo (jpg,png,jpeg) </Label>
       <Input
-        className="border border-gray-500 bg-gray-100"
         type="file"
         name="vendorLogo"
         onChange={handleChange}
@@ -113,11 +96,12 @@ const Form = ({ setState, state }) => {
 
       <Label>Vendor Details</Label>
       <Input
-        className="border border-gray-500 bg-gray-100"
+        value={state.special}
         type="text"
         name="special"
         placeholder="Please enter special text"
         onChange={handleChange}
+        maxLength={30}
       />
 
       <PopoverDemo
@@ -139,7 +123,7 @@ const Form = ({ setState, state }) => {
         <a
           href={`/api/whats?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&background=${state.background}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}`}
           target="_blank"
-          className="w-2/5 mx-auto border border-gray-500 p-1 font-bold text-lg text-blue-900 rounded-md flex gap-2 justify-center cursor-pointer items-center bg-gradient-to-r from-blue-300 to-red-400"
+          className="flex items-center justify-center w-2/5 gap-2 p-1 mx-auto text-lg font-bold text-blue-900 border border-gray-500 rounded-md cursor-pointer bg-gradient-to-r from-blue-300 to-red-400"
         >
           Download
         </a>
@@ -147,7 +131,7 @@ const Form = ({ setState, state }) => {
         <a
           href={`/api/insta?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&background=${state.background}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}`}
           target="_blank"
-          className="w-2/5 mx-auto border border-gray-500 p-1 font-bold text-lg text-blue-900 rounded-md flex gap-2 justify-center cursor-pointer items-center bg-gradient-to-r from-blue-300 to-red-400"
+          className="flex items-center justify-center w-2/5 gap-2 p-1 mx-auto text-lg font-bold text-blue-900 border border-gray-500 rounded-md cursor-pointer bg-gradient-to-r from-blue-300 to-red-400"
         >
           Download
         </a>
