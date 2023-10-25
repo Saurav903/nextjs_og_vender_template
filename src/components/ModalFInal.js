@@ -6,20 +6,14 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-import { AuthContext } from "@/context/AuthContext";
 import Image from "next/image";
-import { useContext } from "react";
 
 export function PopoverDemo({ BgImages, title, setState, state }) {
-  const { setBaground, setCategory } = useContext(AuthContext);
-
-  const handleImages = (item, id) => {
-    if (title === "Baground") {
-      setBaground(item);
-      setState({ ...state, baground: item, imageId: id });
+  const handleImages = (id) => {
+    if (title === "Background") {
+      setState({ ...state, background: id });
     } else if (title === "Category") {
-      setCategory(item);
-      setState({ ...state, category: item });
+      setState({ ...state, category: id });
     }
   };
 
@@ -32,7 +26,7 @@ export function PopoverDemo({ BgImages, title, setState, state }) {
         <PopoverContent className="w-100 flex gap-3 border border-gray-400 bg-white">
           {BgImages.map((image) => (
             <Image
-              onClick={() => handleImages(image.src, image.id)}
+              onClick={() => handleImages(image.id)}
               key={image.id}
               src={image.src}
               alt={image.alt}

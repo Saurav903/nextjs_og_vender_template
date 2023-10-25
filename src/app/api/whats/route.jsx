@@ -1,37 +1,22 @@
 import { ImageResponse } from "next/server";
 // App router includes @vercel/og.
 // No need to install it.
-
+import { whatsappImage, categoryImage } from "@/app/utils/data";
 export const runtime = "edge";
-// const fontDataRegular = fetch(
-//   new URL("../../../../public/Inter-Bold.ttf", import.meta.url)
-// ).then((res) => res.arrayBuffer());
-// const fontDataBolder = fetch(
-//   new URL("../../../../public/Inter-Regular.ttf", import.meta.url)
-// ).then((res) => res.arrayBuffer());
+
 export async function GET(request) {
   try {
-    // const [regularfont, bolderfont] = await Promise.all([
-    //   fontDataRegular,
-    //   fontDataBolder,
-    // ]);
-
     const { searchParams } = new URL(request.url);
 
-    // ?title=<title>
     const hasTitle = searchParams.get("title");
     const hasDesc = searchParams.get("description");
     const hasSpecial = searchParams.get("special");
     const hasWidth = searchParams.get("width");
     const hasHeight = searchParams.get("height");
-    const hasBackground = searchParams.get("baground");
-    const hasCategory = searchParams.get("category");
+    const hasBackground = searchParams.get("background")?.slice(0, 2);
+    const hasCategory = searchParams.get("category")?.slice(0, 2);
     let hasvendorLogo = searchParams.get("vendorlogo");
-    let hasimageId = searchParams.get("imageid");
-    let hasSocialMedia = searchParams.get("socialMedia");
-    let SocialMedia = hasSocialMedia
-      ? searchParams.get("socialMedia")?.slice(0, 100)
-      : "Whatsapp";
+
     const title = hasTitle
       ? searchParams.get("title")?.slice(0, 100)
       : " Navratri Vrat Special";
@@ -43,18 +28,29 @@ export async function GET(request) {
       ? searchParams.get("special")?.slice(0, 100)
       : "Order Navratri specials from our restaurants now!";
     const width = hasWidth ? searchParams.get("width")?.slice(0, 100) : 1080;
-    const height = hasHeight ? searchParams.get("height")?.slice(0, 100) : 1035;
+    const height = hasHeight ? searchParams.get("height")?.slice(0, 100) : 1920;
 
-    const background = hasBackground
-      ? searchParams.get("baground")?.slice(0, 500)
-      : "https://neon.ipsator.com/c/image/upload/v1697634854/irctc/post/bg/instagram-story/post-instagram-story-bg-2.jpg";
-    const category = hasCategory
-      ? searchParams.get("category")?.slice(0, 500)
-      : "https://neon.ipsator.com/c/image/upload/v1697634895/irctc/post/elements/food/post-food-1.png";
+    // background image data
+    let backgroundId = Number(hasBackground) || 1;
+    let backgroundData = whatsappImage.filter((el) => el.id === backgroundId);
+    const background =
+      backgroundData.length > 0
+        ? backgroundData[0].src
+        : "https://neon.ipsator.com/c/image/upload/v1697634854/irctc/post/bg/instagram-story/post-instagram-story-bg-2.jpg";
+
+    // category image data
+
+    let categoryId = Number(hasCategory);
+    let categoryData = categoryImage.filter((el) => el.id === categoryId);
+    const category =
+      categoryData.length > 0
+        ? categoryData[0].src
+        : "https://neon.ipsator.com/c/image/upload/v1697634895/irctc/post/elements/food/post-food-1.png";
+
+    // vendor logo
     let vendorlogo = hasvendorLogo
       ? searchParams.get("vendorlogo")?.slice(0, 100)
       : "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png";
-    let imageId = hasimageId ? searchParams.get("imageid")?.slice(0, 100) : "1";
 
     return new ImageResponse(
       (
@@ -85,7 +81,7 @@ export async function GET(request) {
                 // fontFamily: "Inter",
                 letterSpacing: "-0.025em",
                 color: `${
-                  Number(imageId) === 1 || Number(imageId) === 6
+                  backgroundId === 1 || backgroundId === 6
                     ? "rgb(123,64,8)"
                     : "white"
                 }`,
@@ -117,7 +113,7 @@ export async function GET(request) {
                 letterSpacing: "-0.025em",
                 marginTop: 30,
                 color: `${
-                  Number(imageId) === 1 || Number(imageId) === 6
+                  backgroundId === 1 || backgroundId === 6
                     ? "rgb(123,64,8)"
                     : "white"
                 }`,
@@ -146,9 +142,8 @@ export async function GET(request) {
               src={category}
               alt="dd"
               style={{
-                marginTop: "400px",
-                width: "600px",
-                height: "400px",
+                marginTop: "300px",
+                height: "500px",
               }}
             />
 
@@ -180,7 +175,7 @@ export async function GET(request) {
                   fontStyle: "normal",
                   letterSpacing: "-0.025em",
                   color: `${
-                    Number(imageId) === 1 || Number(imageId) === 6
+                    backgroundId === 1 || backgroundId === 6
                       ? "rgb(123,64,8)"
                       : "white"
                   }`,
@@ -199,20 +194,6 @@ export async function GET(request) {
       {
         width: width,
         height: height,
-        // fonts: [
-        //   {
-        //     name: "Inter",
-        //     data: regularfont,
-        //     style: "normal",
-        //     weight: 400,
-        //   },
-        //   {
-        //     name: "Inter",
-        //     data: bolderfont,
-        //     style: "normal",
-        //     weight: 800,
-        //   },
-        // ],
       }
     );
   } catch (e) {
