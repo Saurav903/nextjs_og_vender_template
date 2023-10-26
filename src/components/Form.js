@@ -44,8 +44,8 @@ const Form = ({ setState, state }) => {
   })
   
   return (
-    <div className="flex flex-col w-full h-full gap-5 px-20 py-12 mx-auto border border-gray-400 rounded-lg bg-gradient-to-r from-blue-200 to-red-200">
-      <h1 className="mx-auto text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-black to-blue-600">
+    <div className="form_container">
+      <h1 className="form_heading">
         Vendor Form
       </h1>
 
@@ -56,7 +56,7 @@ const Form = ({ setState, state }) => {
           }
         >
           Instagram
-          <FaInstagramSquare className="text-red-500 text-[25px]" />
+          <FaInstagramSquare className="inst_icon" />
         </Button>
         <Button
           onClick={
@@ -64,7 +64,7 @@ const Form = ({ setState, state }) => {
           }
         >
           Whatsapp
-          <FaWhatsappSquare className="text-green-500 text-[25px]" />
+          <FaWhatsappSquare className="whatsapp_icon" />
         </Button>
       </div>
       <Label>Title</Label>
@@ -122,7 +122,7 @@ const Form = ({ setState, state }) => {
         <a
           href={`/api/${state.height === 1920? "whats" : "insta"}?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&background=${state.background}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}`}
           target="_blank"
-          className="flex items-center justify-center w-2/5 gap-2 p-1 mx-auto text-lg font-bold text-blue-900 border border-gray-500 rounded-md cursor-pointer bg-gradient-to-r from-blue-300 to-red-400"
+          className="download_button"
         >
           Download
         </a>

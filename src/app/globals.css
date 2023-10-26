@@ -44,3 +44,23 @@ body{
     height: 200%; 
     border: 1px solid red;
   }
+
+  .download_button{
+    @apply flex items-center justify-center w-2/5 gap-2 p-1 mx-auto text-lg font-bold text-blue-900 border border-gray-500 rounded-md cursor-pointer bg-gradient-to-r from-blue-300 to-red-400
+  }
+
+  .form_container{
+    @apply flex flex-col w-full h-full gap-5 px-20 py-12 mx-auto border border-gray-400 rounded-lg bg-gradient-to-r from-blue-200 to-red-200
+  }
+
+  .form_heading{
+    @apply mx-auto text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-black to-blue-600
+  }
+
+  .inst_icon{
+    @apply text-red-500 text-[25px]
+  }
+
+  .whatsapp_icon{
+    @apply text-green-500 text-[25px]
+  }
