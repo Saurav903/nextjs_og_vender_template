@@ -25,6 +25,11 @@ const Form = ({ setState, state }) => {
         });
     } else {
       value = e.target.value;
+      if (value.length >= e.target.maxLength) {
+        alert(`Maximum length of ${e.target.maxLength} characters reached.`);
+        // console.log(e.target.maxLength);
+        return;
+      }
     }
     setState({ ...state, [name]: value });
   };
@@ -114,23 +119,13 @@ const Form = ({ setState, state }) => {
       />
 
       <br />
-      {state.height === 1920 ? (
         <a
-          href={`/api/whats?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&background=${state.background}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}`}
+          href={`/api/${state.height === 1920? "whats" : "insta"}?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&background=${state.background}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}`}
           target="_blank"
           className="flex items-center justify-center w-2/5 gap-2 p-1 mx-auto text-lg font-bold text-blue-900 border border-gray-500 rounded-md cursor-pointer bg-gradient-to-r from-blue-300 to-red-400"
         >
           Download
         </a>
-      ) : (
-        <a
-          href={`/api/insta?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&background=${state.background}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}`}
-          target="_blank"
-          className="flex items-center justify-center w-2/5 gap-2 p-1 mx-auto text-lg font-bold text-blue-900 border border-gray-500 rounded-md cursor-pointer bg-gradient-to-r from-blue-300 to-red-400"
-        >
-          Download
-        </a>
-      )}
     </div>
   );
 };
