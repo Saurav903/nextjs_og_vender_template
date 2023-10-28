@@ -45,12 +45,12 @@ export async function GET(request) {
     const category =
       categoryData.length > 0
         ? categoryData[0].src
-        : "https://neon.ipsator.com/c/image/upload/v1697634895/irctc/post/elements/food/post-food-1.png";
+        : "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-4.png";
 
     // vendor logo
     let vendorlogo = hasvendorLogo
       ? searchParams.get("vendorlogo")
-      : "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png";
+      : "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-4.png";
 
     return new ImageResponse(
       (
@@ -71,14 +71,13 @@ export async function GET(request) {
               textAlign: "center",
               justifyContent: "center",
               alignItems: "center",
-              marginTop: "150px",
+              marginTop: "110px",
             }}
           >
             <p
               style={{
-                fontSize: 80,
-
-                // fontFamily: "Inter",
+                width: "100%",
+                fontSize: `${title.length < 15 ? 100 : 80}`,
                 letterSpacing: "-0.025em",
                 color: `${
                   backgroundId === 1 || backgroundId === 6
@@ -132,7 +131,7 @@ export async function GET(request) {
               height: "100%",
               width: "100%",
               display: "flex",
-              textAlign: "center",
+              // textAlign: "center",
               alignItems: "center",
               justifyContent: "center",
               flexDirection: "column",
@@ -142,7 +141,7 @@ export async function GET(request) {
               src={category}
               alt="dd"
               style={{
-                marginTop: "300px",
+                marginTop: "350px",
                 height: "500px",
               }}
             />
@@ -150,28 +149,30 @@ export async function GET(request) {
             <div
               style={{
                 display: "flex",
-                textAlign: "center",
+                // textAlign: "center",
                 justifyContent: "center",
                 alignItems: "center",
+                gap: "10px",
                 width: "100%",
-                minHeight: "320px",
+                minHeight: "370px",
                 margin: "auto",
-                backgroundColor: "rgba(255, 255, 255, 0.1)",
+                backgroundColor: "rgba(255, 255, 255, 0.3)",
 
-                marginTop: "200px",
+                marginTop: "150px",
               }}
             >
               <img
                 src={vendorlogo}
                 alt=""
-                width={"25%"}
-                height="80%"
-                style={{ padding: "10px" }}
+                width={"30%"}
+                height="100%"
+                style={{ padding: "15px" }}
               />
 
               <p
                 style={{
-                  fontSize: 30,
+                  width: "70%",
+                  fontSize: "40px",
                   fontStyle: "normal",
                   letterSpacing: "-0.025em",
                   color: `${
@@ -182,7 +183,6 @@ export async function GET(request) {
                   lineHeight: 1.4,
                   whiteSpace: "pre-wrap",
                   fontWeight: 800,
-                  width: "70%",
                 }}
               >
                 {special}

@@ -11,7 +11,11 @@ import Image from "next/image";
 export function PopoverDemo({ BgImages, title, setState, state }) {
   const handleImages = (id) => {
     if (title === "Background") {
-      setState({ ...state, background: id });
+      setState({
+        ...state,
+        background: id,
+        bp: ["center", "500px 760px", "no-repeat"],
+      });
     } else if (title === "Category") {
       setState({ ...state, category: id });
     }

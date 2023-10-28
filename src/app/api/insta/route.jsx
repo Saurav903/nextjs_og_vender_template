@@ -69,7 +69,7 @@ export async function GET(request) {
               textAlign: "center",
               justifyContent: "center",
               alignItems: "center",
-              marginTop: "130px",
+              marginTop: "100px",
             }}
           >
             <p
@@ -150,7 +150,7 @@ export async function GET(request) {
                 width: "100%",
                 height: "240px",
                 margin: "auto",
-                gap:"10px",
+                gap: "10px",
                 // padding:'3px',
                 backgroundColor: "rgba(255, 255, 255, 0.1)",
                 marginTop: "15px",

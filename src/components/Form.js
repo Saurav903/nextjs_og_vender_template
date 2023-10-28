@@ -9,7 +9,6 @@ import { whatsappImage, instaImage, categoryImage } from "@/app/utils/data";
 import { uploadImageAndGetURL } from "@/Server/server";
 
 const Form = ({ setState, state }) => {
-
   const handleChange = (e) => {
     let name = e.target.name;
     let value;
@@ -27,42 +26,31 @@ const Form = ({ setState, state }) => {
       value = e.target.value;
       if (value.length >= e.target.maxLength) {
         alert(`Maximum length of ${e.target.maxLength} characters reached.`);
-        // console.log(e.target.maxLength);
+        console.log(value.length);
         return;
       }
     }
     setState({ ...state, [name]: value });
   };
 
-  const handleSocailMedia=(width,height,background,imageId) =>
-       setState({
-         ...state,
-         width,
-         height,
-         background,
-         imageId,
-  })
-  
+  const handleSocailMedia = (width, height, background) =>
+    setState({
+      ...state,
+      width,
+      height,
+      background,
+    });
+
   return (
     <div className="form_container">
-      <h1 className="form_heading">
-        Vendor Form
-      </h1>
+      <h1 className="form_heading">Vendor Form</h1>
 
       <div className="flex gap-5 mx-auto">
-        <Button
-          onClick={
-            ()=>handleSocailMedia(1080,1080,"https://neon.ipsator.com/c/image/upload/v1697725263/irctc/post/bg/post-post-bg-3.jpg",6)
-          }
-        >
+        <Button onClick={() => handleSocailMedia(1080, 1080, 6)}>
           Instagram
           <FaInstagramSquare className="inst_icon" />
         </Button>
-        <Button
-          onClick={
-            ()=>handleSocailMedia(1080,1920,"https://neon.ipsator.com/c/image/upload/v1697634853/irctc/post/bg/instagram-story/post-instagram-story-bg-1.jpg",2)
-          }
-        >
+        <Button onClick={() => handleSocailMedia(1080, 1920, 1)}>
           Whatsapp
           <FaWhatsappSquare className="whatsapp_icon" />
         </Button>
@@ -74,7 +62,8 @@ const Form = ({ setState, state }) => {
         name="title"
         placeholder="Please enter a title"
         onChange={handleChange}
-        maxLength={21}
+        maxLength={22}
+        required
       />
 
       <Label>Sub Title</Label>
@@ -84,15 +73,11 @@ const Form = ({ setState, state }) => {
         name="description"
         placeholder="Please enter a description"
         onChange={handleChange}
-        maxLength={25}
+        maxLength={40}
       />
 
       <Label>Vendor Logo (jpg,png,jpeg) </Label>
-      <Input
-        type="file"
-        name="vendorLogo"
-        onChange={handleChange}
-      />
+      <Input type="file" name="vendorLogo" onChange={handleChange} />
 
       <Label>Vendor Details</Label>
       <Input
@@ -119,13 +104,19 @@ const Form = ({ setState, state }) => {
       />
 
       <br />
-        <a
-          href={`/api/${state.height === 1920? "whats" : "insta"}?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&background=${state.background}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}`}
-          target="_blank"
-          className="download_button"
-        >
-          Download
-        </a>
+      <a
+        href={`/api/${state.height === 1920 ? "whats" : "insta"}?title=${
+          state.title
+        }&description=${state.description}&width=${state.width}&height=${
+          state.height
+        }&background=${state.background}&category=${state.category}&special=${
+          state.special
+        }&vendorlogo=${state.vendorLogo}`}
+        target="_blank"
+        className="download_button"
+      >
+        Download
+      </a>
     </div>
   );
 };
