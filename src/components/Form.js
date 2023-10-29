@@ -47,7 +47,9 @@ const Form = ({ setState, state }) => {
         Vendor Form
       </h1>
 
-      <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 md:gap-10 mx-auto">
+
+      <div className="flex flex-col md:flex-row gap-5 mx-auto">
+
         <Button onClick={() => handleSocailMedia(1080, 1080, 6)}>
           Instagram
           <FaInstagramSquare className="inst_icon" />

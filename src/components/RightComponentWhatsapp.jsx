@@ -1,10 +1,10 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
+import styles from "../app/style/rightcomponent.module.css";
+
 import { whatsappImage, categoryImage } from "@/app/utils/data";
-import { Responsive } from "@/app/utils/Responsive";
 
 const RightComponentWhatsapp = ({ state }) => {
-  const { isSmallScreen } = Responsive();
-
   let backgroundId = state.background || 1;
   let backgroundData = whatsappImage.filter((el) => el.id === backgroundId);
   let background =
@@ -19,38 +19,20 @@ const RightComponentWhatsapp = ({ state }) => {
       ? categoryData[0].src
       : "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-4.png";
 
+  console.log(state.vendorlog);
+
   return (
     <div
+      //   className="flex flex-wrap w-full bg-contain bg-center bg-no-repeat relative"
+      className={styles.main}
       style={{
         backgroundImage: `url(${background})`,
-        backgroundPosition: `${state.bp[0] || "center"}`,
-        backgroundSize: `${isSmallScreen ? "330px 760px" : "500px 760px"}`,
-        backgroundRepeat: `${state.bp[2] || "no-repeat"}`,
-        width: "100%",
-        height: "760px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
       }}
     >
-      <div
-        style={{
-          width: "225px",
-          //   margin: "auto",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          paddingTop: "50px",
-          whiteSpace: "-moz-pre-wrap",
-          textAlign: "center",
-          minHeight: "150px",
-          // border: "1px solid black",
-        }}
-      >
+      <div className={styles.titlediv}>
         <p
+          className={styles.title}
           style={{
-            fontSize: "35px",
             color: `${
               backgroundId === 1 || backgroundId === 6
                 ? "rgb(123,64,8)"
@@ -61,23 +43,10 @@ const RightComponentWhatsapp = ({ state }) => {
           {state.title}
         </p>
       </div>
-      <div
-        style={{
-          width: "300px",
-          margin: "auto",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          whiteSpace: "-moz-pre-wrap",
-          textAlign: "center",
-          marginTop: "20px",
-          minHeight: "60px",
-          // border: "1px solid black",
-        }}
-      >
+      <div className={styles.descript}>
         <p
+          className={styles.descriptpara}
           style={{
-            fontSize: "20px",
             color: `${
               backgroundId === 1 || backgroundId === 6
                 ? "rgb(123,64,8)"
@@ -93,57 +62,24 @@ const RightComponentWhatsapp = ({ state }) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          width: `${isSmallScreen ? "320px" : "500px"}`,
-          // border: "1px solid black",
+          width: "500px",
         }}
       >
-        <img
-          src={category}
-          alt=""
-          style={{
-            height: "300px",
-            paddingTop: `${isSmallScreen ? "35%" : "20%"}`,
-            width: "65%",
-          }}
-        />
+        <img className={styles.categoryimg} src={category} alt="" />
       </div>
-      <div
-        style={{
-          display: "flex",
-          padding: "3%",
-          alignItems: "center",
-          backgroundColor: "rgba(255, 255, 255, 0.2)",
-          margin: "auto",
-          marginTop: "55px",
-          width: `${isSmallScreen ? "320px" : "500px"}`,
-          gap: "10px",
-          // border: "1px solid black",
-          minHeight: "170px",
-        }}
-      >
-        <div
-          style={{
-            flex: "3",
-            height: "120px",
-            // border: "1px solid black",
-          }}
-        >
+      <div className={styles.foots}>
+        <div style={{ flex: "3" }}>
           <img
             src={
               `${state.vendorLogo}` ||
               "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-4.png"
             }
-            style={{
-              height: "120px",
-              padding: "10px",
-              // border: "1px solid black"
-            }}
           />
         </div>
         <div style={{ flex: "7" }}>
           <p
+            className={styles.footp}
             style={{
-              fontSize: "18px",
               color: `${
                 backgroundId === 1 || backgroundId === 6
                   ? "rgb(123,64,8)"
