@@ -19,18 +19,20 @@ export default function Home() {
     height: 1920,
     bp: ["center", "500px 760px", "no-repeat"],
   });
-   
-  const {isMediumScreen}= Responsive()
-  console.log(isMediumScreen,'medium screen')
+
+  const { isMediumScreen } = Responsive();
+  console.log(isMediumScreen, "medium screen");
   return (
-    <main className="h-auto min-h-[100vh] w-full bg-gradient-to-r from-red-300 via-yellow-300 to-blue-300 m-auto border border-red-500">
-      <div className={`flex ${isMediumScreen? 'flex-col' : 'flex-row'} m-auto items-center justify-between w-full gap-10 p-4 sm:p-10 md:p-10`}>
-        <div style={{ width:"100%" }} >
-        <Form setState={setState} state={state} />
+    <main className="h-auto min-h-[100vh] w-full bg-gradient-to-r from-red-300 via-yellow-300 to-blue-300 m-auto">
+      <div
+        className={`flex ${ isMediumScreen && "flex-col" } m-auto items-center justify-between w-full gap-10 p-4 sm:p-10 md:p-10`}
+      >
+        <div style={{ width: "100%" }}>
+          <Form setState={setState} state={state} />
         </div>
-        
+
         {state.height === 1920 ? (
-          <div style={{ width: "100%" , border:'1px solid grey' }}>
+          <div style={{ width: "100%" }}>
             <RightComponentWhatsapp state={state} />
           </div>
         ) : (

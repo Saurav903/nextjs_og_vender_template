@@ -27,7 +27,7 @@ const RightComponentWhatsapp = ({ state }) => {
       style={{
         backgroundImage: `url(${background})`,
         backgroundPosition: `${state.bp[0] || "center"}`,
-        backgroundSize: `${isSmallScreen ? "350px 760px" : "500px 760px"}`,
+        backgroundSize: `${isSmallScreen ? "330px 760px" : "500px 760px"}`,
         backgroundRepeat: `${state.bp[2] || "no-repeat"}`,
         width: "100%",
         height: "760px",
@@ -48,7 +48,7 @@ const RightComponentWhatsapp = ({ state }) => {
           whiteSpace: "-moz-pre-wrap",
           textAlign: "center",
           minHeight: "150px",
-          border: "1px solid black",
+          // border: "1px solid black",
         }}
       >
         <p
@@ -75,7 +75,7 @@ const RightComponentWhatsapp = ({ state }) => {
           textAlign: "center",
           marginTop: "20px",
           minHeight: "60px",
-          border: "1px solid black",
+          // border: "1px solid black",
         }}
       >
         <p
@@ -97,7 +97,7 @@ const RightComponentWhatsapp = ({ state }) => {
           justifyContent: "center",
           alignItems: "center",
           width: `${isSmallScreen ? "320px" : "500px"}`,
-          border: "1px solid black",
+          // border: "1px solid black",
         }}
       >
         <img
@@ -105,7 +105,8 @@ const RightComponentWhatsapp = ({ state }) => {
           alt=""
           style={{ 
             height: "300px",
-             paddingTop: `${isSmallScreen ? "30%":"20%"}` 
+            paddingTop: `${isSmallScreen ? "35%":"20%"}`, 
+            width:'65%'
           }}
         />
       </div>
@@ -119,22 +120,28 @@ const RightComponentWhatsapp = ({ state }) => {
           marginTop: "55px",
           width: `${isSmallScreen ? "320px" : "500px"}`,
           gap: "10px",
-          border: "1px solid black",
+          // border: "1px solid black",
           minHeight: "170px",
         }}
       >
         <div style={{ 
-          flex: "4",
-          border: "1px solid black",
+          flex: "3",
+          height: "120px",
+          // border: "1px solid black",
           }}>
           <img
             src={
               `${state.vendorLogo}` ||
               "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-4.png"
             }
+            style={{ 
+              height: "120px", 
+              padding: "10px" , 
+              // border: "1px solid black"
+            }}
           />
         </div>
-        <div style={{ flex: "6" }}>
+        <div style={{ flex: "7" }}>
           <p
             style={{
               fontSize: "18px",

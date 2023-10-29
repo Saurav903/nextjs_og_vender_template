@@ -26,7 +26,7 @@ const RightComponentInstagram = ({ state }) => {
       style={{
         backgroundImage: `url(${background})`,
         backgroundPosition: "center",
-        backgroundSize: `${isSmallScreen ? "350px 600px" : "500px 600px"}`,
+        backgroundSize: `${isSmallScreen ? "330px 600px" : "500px 600px"}`,
         backgroundRepeat: `${state.bp[2] || "no-repeat"}`,
         width: "100%",
         height: "700px",
@@ -44,7 +44,7 @@ const RightComponentInstagram = ({ state }) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          paddingTop: "80px",
+          paddingTop: "95px",
           whiteSpace: "-moz-pre-wrap",
           textAlign: "center",
           // border: "1px solid black",
@@ -120,21 +120,29 @@ const RightComponentInstagram = ({ state }) => {
           margin: "auto",
           marginTop:`${isSmallScreen ? "-10px" : "-8px"}`,
           width: `${isSmallScreen ? "330px" : "500px"}`,
-          gap: `${isSmallScreen ? "2px" : "10px"}`,
+          gap: `${isSmallScreen ? "2px" : "4px"}`,
           // border: "1px solid black",
           padding: "1px",
         }}
       >
-        <div style={{ flex: "4" }}>
+        <div style={{ 
+        flex: "3" ,
+        height: "120px",
+        // border: "1px solid black",
+        }}>
           <img
             src={
               state.vendorLogo ||
               "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png"
             }
-            style={{ height: "140px", padding: "15px" }}
+            style={{ 
+            height: "120px", 
+            padding: "10px" , 
+            // border: "1px solid black"
+          }}
           />
         </div>
-        <div style={{ flex: "6" }}>
+        <div style={{ flex: "7" }}>
           <p
             style={{
               color: `${
