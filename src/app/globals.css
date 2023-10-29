@@ -45,6 +45,16 @@ body{
     border: 1px solid red;
   }
 
+  .main_container{
+    display: flex;
+  flex-direction: row;
+}
+
+  @media (max-width: 820px) {
+  .main_container {
+    flex-direction: column;
+  }
+}
   .download_button{
     @apply flex items-center justify-center w-2/5 gap-2 p-1 mx-auto text-base sm:text-lg font-bold text-blue-900 border border-gray-500 rounded-md cursor-pointer bg-gradient-to-r from-blue-300 to-red-400
   }

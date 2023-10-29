@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <main className="h-auto min-h-[100vh] w-full bg-gradient-to-r from-red-300 via-yellow-300 to-blue-300 m-auto">
       <div
-        className={`flex ${ isMediumScreen && "flex-col" } m-auto items-center justify-between w-full gap-10 p-4 sm:p-10 md:p-10`}
+        className={`main_container m-auto items-center justify-between w-full gap-10 p-4 sm:p-10 md:p-10`}
       >
         <div style={{ width: "100%" }}>
           <Form setState={setState} state={state} />
