@@ -21,7 +21,6 @@ const RightComponentInstagram = ({ state }) => {
 
   return (
     <div
-      //   className="flex flex-wrap w-full bg-contain bg-center bg-no-repeat relative"
       id="main_div"
       style={{
         backgroundImage: `url(${background})`,
@@ -104,7 +103,7 @@ const RightComponentInstagram = ({ state }) => {
           alt=""
           style={{
             height: "200px",
-            marginTop: `${isSmallScreen? "18%": "8%"}`,
+            marginTop: `${isSmallScreen ? "18%" : "8%"}`,
             // border: "1px solid black"
           }}
           className="category_img"
@@ -118,28 +117,30 @@ const RightComponentInstagram = ({ state }) => {
           minHeight: "50px",
           backgroundColor: "rgba(255, 255, 255, 0.2)",
           margin: "auto",
-          marginTop:`${isSmallScreen ? "-10px" : "-8px"}`,
+          marginTop: `${isSmallScreen ? "-10px" : "-8px"}`,
           width: `${isSmallScreen ? "330px" : "500px"}`,
           gap: `${isSmallScreen ? "2px" : "4px"}`,
           // border: "1px solid black",
           padding: "1px",
         }}
       >
-        <div style={{ 
-        flex: "3" ,
-        height: "120px",
-        // border: "1px solid black",
-        }}>
+        <div
+          style={{
+            flex: "3",
+            height: "120px",
+            // border: "1px solid black",
+          }}
+        >
           <img
             src={
               state.vendorLogo ||
               "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png"
             }
-            style={{ 
-            height: "120px", 
-            padding: "10px" , 
-            // border: "1px solid black"
-          }}
+            style={{
+              height: "120px",
+              padding: "10px",
+              // border: "1px solid black"
+            }}
           />
         </div>
         <div style={{ flex: "7" }}>

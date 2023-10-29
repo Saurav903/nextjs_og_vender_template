@@ -1,10 +1,8 @@
 import React from "react";
-
 import { whatsappImage, categoryImage } from "@/app/utils/data";
 import { Responsive } from "@/app/utils/Responsive";
 
 const RightComponentWhatsapp = ({ state }) => {
-
   const { isSmallScreen } = Responsive();
 
   let backgroundId = state.background || 1;
@@ -20,7 +18,6 @@ const RightComponentWhatsapp = ({ state }) => {
     categoryData.length > 0
       ? categoryData[0].src
       : "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-4.png";
-
 
   return (
     <div
@@ -103,10 +100,10 @@ const RightComponentWhatsapp = ({ state }) => {
         <img
           src={category}
           alt=""
-          style={{ 
+          style={{
             height: "300px",
-            paddingTop: `${isSmallScreen ? "35%":"20%"}`, 
-            width:'65%'
+            paddingTop: `${isSmallScreen ? "35%" : "20%"}`,
+            width: "65%",
           }}
         />
       </div>
@@ -124,19 +121,21 @@ const RightComponentWhatsapp = ({ state }) => {
           minHeight: "170px",
         }}
       >
-        <div style={{ 
-          flex: "3",
-          height: "120px",
-          // border: "1px solid black",
-          }}>
+        <div
+          style={{
+            flex: "3",
+            height: "120px",
+            // border: "1px solid black",
+          }}
+        >
           <img
             src={
               `${state.vendorLogo}` ||
               "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-4.png"
             }
-            style={{ 
-              height: "120px", 
-              padding: "10px" , 
+            style={{
+              height: "120px",
+              padding: "10px",
               // border: "1px solid black"
             }}
           />

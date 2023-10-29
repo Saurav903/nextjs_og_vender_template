@@ -1,11 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
 "use client";
 import { useState } from "react";
-
 import Form from "@/components/Form";
 import RightComponentWhatsapp from "@/components/RightComponentWhatsapp";
 import RightComponentInstagram from "@/components/RightComponentInstagram";
-import { Responsive } from "./utils/Responsive";
 
 export default function Home() {
   const [state, setState] = useState({
@@ -20,8 +17,6 @@ export default function Home() {
     bp: ["center", "500px 760px", "no-repeat"],
   });
 
-  const { isMediumScreen } = Responsive();
-  console.log(isMediumScreen, "medium screen");
   return (
     <main className="h-auto min-h-[100vh] w-full bg-gradient-to-r from-red-300 via-yellow-300 to-blue-300 m-auto">
       <div
