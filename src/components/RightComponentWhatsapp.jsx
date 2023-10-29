@@ -1,9 +1,12 @@
-"use client";
-import React, { useEffect } from "react";
+import React from "react";
 
 import { whatsappImage, categoryImage } from "@/app/utils/data";
+import { Responsive } from "@/app/utils/Responsive";
 
 const RightComponentWhatsapp = ({ state }) => {
+
+  const { isSmallScreen } = Responsive();
+
   let backgroundId = state.background || 1;
   let backgroundData = whatsappImage.filter((el) => el.id === backgroundId);
   let background =
@@ -18,20 +21,13 @@ const RightComponentWhatsapp = ({ state }) => {
       ? categoryData[0].src
       : "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-4.png";
 
-  // let vendors = "";
-
-  // useEffect(() => {
-  //   vendors = state.vendorlog;
-  // }, [state]);
-  console.log(state.vendorlog);
 
   return (
     <div
-      //   className="flex flex-wrap w-full bg-contain bg-center bg-no-repeat relative"
       style={{
         backgroundImage: `url(${background})`,
         backgroundPosition: `${state.bp[0] || "center"}`,
-        backgroundSize: `${state.bp[1] || "500px 760px"}`,
+        backgroundSize: `${isSmallScreen ? "350px 760px" : "500px 760px"}`,
         backgroundRepeat: `${state.bp[2] || "no-repeat"}`,
         width: "100%",
         height: "760px",
@@ -52,7 +48,7 @@ const RightComponentWhatsapp = ({ state }) => {
           whiteSpace: "-moz-pre-wrap",
           textAlign: "center",
           minHeight: "150px",
-          // border: "1px solid black",
+          border: "1px solid black",
         }}
       >
         <p
@@ -79,7 +75,7 @@ const RightComponentWhatsapp = ({ state }) => {
           textAlign: "center",
           marginTop: "20px",
           minHeight: "60px",
-          // border: "1px solid black",
+          border: "1px solid black",
         }}
       >
         <p
@@ -100,13 +96,17 @@ const RightComponentWhatsapp = ({ state }) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          width: "500px",
+          width: `${isSmallScreen ? "320px" : "500px"}`,
+          border: "1px solid black",
         }}
       >
         <img
           src={category}
           alt=""
-          style={{ height: "300px", paddingTop: "20%" }}
+          style={{ 
+            height: "300px",
+             paddingTop: `${isSmallScreen ? "30%":"20%"}` 
+          }}
         />
       </div>
       <div
@@ -117,13 +117,16 @@ const RightComponentWhatsapp = ({ state }) => {
           backgroundColor: "rgba(255, 255, 255, 0.2)",
           margin: "auto",
           marginTop: "55px",
-          width: "500px",
+          width: `${isSmallScreen ? "320px" : "500px"}`,
           gap: "10px",
-          //   border: "1px solid black",
+          border: "1px solid black",
           minHeight: "170px",
         }}
       >
-        <div style={{ flex: "3" }}>
+        <div style={{ 
+          flex: "4",
+          border: "1px solid black",
+          }}>
           <img
             src={
               `${state.vendorLogo}` ||
@@ -131,7 +134,7 @@ const RightComponentWhatsapp = ({ state }) => {
             }
           />
         </div>
-        <div style={{ flex: "7" }}>
+        <div style={{ flex: "6" }}>
           <p
             style={{
               fontSize: "18px",

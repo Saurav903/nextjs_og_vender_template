@@ -78,7 +78,7 @@ const RightComponentInstagram = ({ state }) => {
       >
         <p
           style={{
-            fontSize: "15px",
+            fontSize: "17px",
             color: `${
               backgroundId === 1 || backgroundId === 6
                 ? "rgb(123,64,8)"
@@ -104,7 +104,7 @@ const RightComponentInstagram = ({ state }) => {
           alt=""
           style={{
             height: "200px",
-            marginTop: `${isSmallScreen? "18%": "14%"}`,
+            marginTop: `${isSmallScreen? "18%": "8%"}`,
             // border: "1px solid black"
           }}
           className="category_img"
@@ -115,16 +115,15 @@ const RightComponentInstagram = ({ state }) => {
         style={{
           display: "flex",
           alignItems: "center",
-          minHeight: "80px",
+          minHeight: "50px",
           backgroundColor: "rgba(255, 255, 255, 0.2)",
           margin: "auto",
-          marginTop:`${isSmallScreen ? "-10px" : "5px"}`,
-          width: `${isSmallScreen ? "340px" : "500px"}`,
+          marginTop:`${isSmallScreen ? "-10px" : "-8px"}`,
+          width: `${isSmallScreen ? "330px" : "500px"}`,
           gap: `${isSmallScreen ? "2px" : "10px"}`,
           // border: "1px solid black",
           padding: "1px",
         }}
-        id="special_text_div"
       >
         <div style={{ flex: "4" }}>
           <img
@@ -137,7 +136,6 @@ const RightComponentInstagram = ({ state }) => {
         </div>
         <div style={{ flex: "6" }}>
           <p
-            className="special_text"
             style={{
               color: `${
                 backgroundId === 1 || backgroundId === 6
