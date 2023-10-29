@@ -45,7 +45,7 @@ const Form = ({ setState, state }) => {
     <div className="form_container">
       <h1 className="form_heading">Vendor Form</h1>
 
-      <div className="flex gap-5 mx-auto">
+      <div className="flex flex-col md:flex-row gap-5 mx-auto">
         <Button onClick={() => handleSocailMedia(1080, 1080, 6)}>
           Instagram
           <FaInstagramSquare className="inst_icon" />

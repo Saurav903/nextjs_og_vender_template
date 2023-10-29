@@ -1,0 +1,108 @@
+.main{
+    background-size: 500px 760px;
+    background-position:center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 760px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.titlediv{
+   
+
+          width: 225px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-top: 50px;
+          white-space: -moz-pre-wrap;
+          text-align: center;
+          min-height: 150px;
+}
+
+.title{
+    font-size: 35px;
+}
+
+.categoryimg{
+    height: 300px;
+    padding-top: 80px;
+}
+
+.descript{
+    
+          width: 300px;
+          margin: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          white-space: -moz-pre-wrap;
+          text-align: center;
+          margin-top: 20px;
+          min-height: 60px;
+}
+
+.descriptpara{
+    font-size: 20px;
+}
+
+.foots{
+    display: flex;
+    padding: 3%;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: auto;
+    margin-top: 55px;
+    width: 500px;
+    gap: 10px;
+    min-height: 170px;
+    /* border: 1px solid black; */
+}
+.footp{
+    font-size: 18px;
+    padding-bottom: 30px;
+}
+
+
+@media all and (max-width:500px) and (min-width:200px){
+
+    .main{
+        width: 100%;
+        margin: auto;
+        background-size: 300px 550px;
+        height: 550px;
+        /* margin-left: 60px; */
+    }
+    .titlediv{
+        padding-top: 30px;
+        min-height: 110px;
+    }
+    .title{
+        font-size: 25px;
+    }
+    .descript{
+        width: 200px;
+        margin-top: 0;
+    }
+    .categoryimg{
+        height: 150px;
+        padding-top: 15px;
+        margin-top: 50px;
+    }
+    .foots{
+        padding: 0px;
+        margin-top: 80px;
+        width: 300px;
+        min-height: 60px;        
+    }
+    .footp{
+        font-size: 12px;
+        padding-top: 30px;
+    }
+    .descriptpara{
+        font-size: 15px;
+    }
+}

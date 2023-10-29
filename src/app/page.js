@@ -20,16 +20,16 @@ export default function Home() {
   });
 
   return (
-    <main className="p-10 bg-gradient-to-r from-red-300 via-yellow-300 to-blue-300">
-      <div className="flex justify-between w-full gap-10 p-10">
+    <main className="">
+      <div className="grid  base:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2  gap-10 justify-center items-center p-5">
         <Form setState={setState} state={state} />
 
         {state.height === 1920 ? (
-          <div style={{ width: "100%" }}>
+          <div>
             <RightComponentWhatsapp state={state} />
           </div>
         ) : (
-          <div style={{ width: "100%" }}>
+          <div>
             <RightComponentInstagram state={state} />
           </div>
         )}

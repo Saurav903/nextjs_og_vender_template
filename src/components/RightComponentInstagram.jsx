@@ -1,5 +1,6 @@
 import React from "react";
 import { whatsappImage, instaImage, categoryImage } from "@/app/utils/data";
+import styles from "../app/style/instagram.module.css";
 
 const RightComponentInstagram = ({ state }) => {
   let backgroundId = state.background || 6;
@@ -18,36 +19,15 @@ const RightComponentInstagram = ({ state }) => {
 
   return (
     <div
-      //   className="flex flex-wrap w-full bg-contain bg-center bg-no-repeat relative"
+      className={styles.main}
       style={{
         backgroundImage: `url(${background})`,
-        backgroundPosition: `${state.bp[0] || "center"}`,
-        backgroundSize: `${"500px 600px"}`,
-        backgroundRepeat: `${state.bp[2] || "no-repeat"}`,
-        width: "100%",
-        height: "700px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
       }}
     >
-      <div
-        style={{
-          width: "225px",
-          //   margin: "auto",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          paddingTop: "80px",
-          whiteSpace: "-moz-pre-wrap",
-          textAlign: "center",
-          //   border: "1px solid black",
-        }}
-      >
+      <div className={styles.titlediv}>
         <p
+          className={styles.title}
           style={{
-            fontSize: "27px",
             color: `${
               backgroundId === 1 || backgroundId === 6
                 ? "rgb(123,64,8)"
@@ -58,22 +38,10 @@ const RightComponentInstagram = ({ state }) => {
           {state.title}
         </p>
       </div>
-      <div
-        style={{
-          width: "250px",
-          margin: "auto",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          whiteSpace: "-moz-pre-wrap",
-          textAlign: "center",
-          marginTop: "15px",
-          //   border: "1px solid black",
-        }}
-      >
+      <div className={styles.descript}>
         <p
+          className={styles.descriptpara}
           style={{
-            fontSize: "15px",
             color: `${
               backgroundId === 1 || backgroundId === 6
                 ? "rgb(123,64,8)"
@@ -93,37 +61,21 @@ const RightComponentInstagram = ({ state }) => {
           // border: "1px solid black",
         }}
       >
-        <img
-          src={category}
-          alt=""
-          style={{ height: "150px", marginTop: "14%" }}
-        />
+        <img className={styles.categoryimg} src={category} alt="" />
       </div>
-      <div
-        style={{
-          display: "flex",
-
-          alignItems: "center",
-          minHeight: "80px",
-          backgroundColor: "rgba(255, 255, 255, 0.2)",
-          margin: "auto",
-          marginTop: "10px",
-          width: "500px",
-          gap: "10px",
-          //   border: "1px solid black",
-        }}
-      >
+      <div className={styles.foots}>
         <div style={{ flex: "3" }}>
           <img
+            className={styles.footimg}
             src={
               state.vendorLogo ||
               "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-4.png"
             }
-            style={{ width: "500px", height: "150px", padding: "15px" }}
           />
         </div>
         <div style={{ flex: "7" }}>
           <p
+            className={styles.footp}
             style={{
               color: `${
                 backgroundId === 1 || backgroundId === 6
