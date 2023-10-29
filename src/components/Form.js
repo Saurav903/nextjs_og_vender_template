@@ -43,9 +43,11 @@ const Form = ({ setState, state }) => {
 
   return (
     <div className="form_container">
-      <h1 className="form_heading">Vendor Form</h1>
+          <h1 className="form_heading">
+        Vendor Form
+      </h1>
 
-      <div className="flex gap-5 mx-auto">
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 md:gap-10 mx-auto">
         <Button onClick={() => handleSocailMedia(1080, 1080, 6)}>
           Instagram
           <FaInstagramSquare className="inst_icon" />
@@ -55,6 +57,7 @@ const Form = ({ setState, state }) => {
           <FaWhatsappSquare className="whatsapp_icon" />
         </Button>
       </div>
+
       <Label>Title</Label>
       <Input
         value={state.title}
@@ -76,7 +79,7 @@ const Form = ({ setState, state }) => {
         maxLength={40}
       />
 
-      <Label>Vendor Logo (jpg,png,jpeg) </Label>
+      <Label>Vendor Logo (jpg, png, jpeg) </Label>
       <Input type="file" name="vendorLogo" onChange={handleChange} />
 
       <Label>Vendor Details</Label>
@@ -103,7 +106,6 @@ const Form = ({ setState, state }) => {
         state={state}
       />
 
-      <br />
       <a
         href={`/api/${state.height === 1920 ? "whats" : "insta"}?title=${
           state.title
