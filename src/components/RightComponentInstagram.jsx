@@ -15,7 +15,7 @@ const RightComponentInstagram = ({ state }) => {
   let category =
     categoryData.length > 0
       ? categoryData[0].src
-      : "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-4.png";
+      : "https://neon.ipsator.com/c/image/upload/v1697634895/irctc/post/elements/food/post-food-1.png";
 
   return (
     <div
@@ -69,7 +69,7 @@ const RightComponentInstagram = ({ state }) => {
             className={styles.footimg}
             src={
               state.vendorLogo ||
-              "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-4.png"
+              "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png"
             }
           />
         </div>
