@@ -25,11 +25,15 @@ export default function Home() {
 
 
         {state.height === 1920 ? (
-          <div>
+          <div 
+          // className="border border-red-400 bg-gradient-to-r from-red-200 to-red-100"
+          >
             <RightComponentWhatsapp state={state} />
           </div>
         ) : (
-          <div>
+          <div 
+          // className="border border-red-400 bg-gradient-to-r from-red-200 to-red-100"
+          >
             <RightComponentInstagram state={state} />
           </div>
         )}

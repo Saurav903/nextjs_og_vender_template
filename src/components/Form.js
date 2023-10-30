@@ -41,12 +41,20 @@ const Form = ({ setState, state }) => {
       background,
     });
 
+    const handleClick = () => {
+      const url = `/api/${state.height === 1920 ? 'whats' : 'insta'}?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&background=${state.background}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}`;
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = state.title;
+      window.open(url, '_blank');
+      link.click();
+    };
+
   return (
     <div className="form_container">
       <h1 className="form_heading">
         Vendor Form
       </h1>
-
 
       <div className="flex flex-col md:flex-row gap-5 mx-auto">
 
@@ -109,16 +117,9 @@ const Form = ({ setState, state }) => {
       />
 
       <a
-        href={`/api/${state.height === 1920 ? "whats" : "insta"}?title=${
-          state.title
-        }&description=${state.description}&width=${state.width}&height=${
-          state.height
-        }&background=${state.background}&category=${state.category}&special=${
-          state.special
-        }&vendorlogo=${state.vendorLogo}`}
-        target="_blank"
         className="download_button"
-      >
+        onClick={handleClick}
+        >
         Download
       </a>
     </div>
