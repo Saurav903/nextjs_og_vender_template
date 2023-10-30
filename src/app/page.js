@@ -19,7 +19,7 @@ export default function Home() {
 
   return (
 
-    <main className="">
+    <main className="bg-gradient-to-r from-blue-300 to-red-200 h-auto min-h-[100vh]">
       <div className="grid  base:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2  gap-10 justify-center items-center p-5">
         <Form setState={setState} state={state} />
 
