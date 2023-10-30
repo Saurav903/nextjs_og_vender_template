@@ -1,5 +1,5 @@
 .main{
-    background-size: 500px 600px;
+    background-size: 600px 600px;
     background-position:center;
     background-repeat: no-repeat;
     width: 100%;
@@ -24,7 +24,7 @@
 }
 
 .title{
-    font-size: 27px;
+    font-size: 28px;
 }
 
 .categoryimg{
@@ -45,7 +45,7 @@
 }
 
 .descriptpara{
-    font-size: 15px;
+    font-size: 17px;
 }
 
 .foots{
@@ -54,23 +54,24 @@
     background-color: rgba(255, 255, 255, 0.2);
     margin: auto;
     margin-top: 10px;
-    width: 500px;
+    width: 600px;
     gap: 10px;
-    min-height: 80px;
+    min-height: 50px;
+    height: 110px;
     /* border: 1px solid black; */
 }
 .footimg{
-    width: 500px;
-    height: 130px;
+    width: 400px;
+    height: 120px;
     padding: 10px;
 }
 .footp{
     font-size: 18px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 
-@media all and (max-width:500px) and (min-width:200px){
+@media all and (max-width:600px) and (min-width:200px){
 
     .main{
         width: 100%;
