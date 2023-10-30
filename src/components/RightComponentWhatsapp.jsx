@@ -70,10 +70,10 @@ const RightComponentWhatsapp = ({ state }) => {
       <div className={styles.foots}>
         <div style={{ flex: "3" }}>
           <img
-            src={
-              `${state.vendorLogo}` ||
+            src={`${
+              state.vendorLogo ||
               "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-4.png"
-            }
+            }`}
           />
         </div>
         <div style={{ flex: "7" }}>
