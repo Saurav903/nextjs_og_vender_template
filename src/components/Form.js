@@ -41,23 +41,26 @@ const Form = ({ setState, state }) => {
       background,
     });
 
-    const handleClick = () => {
-      const url = `/api/${state.height === 1920 ? 'whats' : 'insta'}?title=${state.title}&description=${state.description}&width=${state.width}&height=${state.height}&background=${state.background}&category=${state.category}&special=${state.special}&vendorlogo=${state.vendorLogo}`;
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = state.title;
-      window.open(url, '_blank');
-      link.click();
-    };
+  const handleClick = () => {
+    const url = `/api/${state.height === 1920 ? "whats" : "insta"}?title=${
+      state.title
+    }&description=${state.description}&width=${state.width}&height=${
+      state.height
+    }&background=${state.background}&category=${state.category}&special=${
+      state.special
+    }&vendorlogo=${state.vendorLogo}`;
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = state.title;
+    window.open(url, "_blank");
+    link.click();
+  };
 
   return (
     <div className="form_container">
-      <h1 className="form_heading">
-        Vendor Form
-      </h1>
+      <h1 className="form_heading">Vendor Form</h1>
 
       <div className="flex flex-col md:flex-row gap-5 mx-auto">
-
         <Button onClick={() => handleSocailMedia(1080, 1080, 6)}>
           Instagram
           <FaInstagramSquare className="inst_icon" />
@@ -67,6 +70,20 @@ const Form = ({ setState, state }) => {
           <FaWhatsappSquare className="whatsapp_icon" />
         </Button>
       </div>
+
+      <PopoverDemo
+        BgImages={state.height === 1920 ? whatsappImage : instaImage}
+        title={"Background"}
+        setState={setState}
+        state={state}
+      />
+
+      <PopoverDemo
+        BgImages={categoryImage}
+        title={"Category"}
+        setState={setState}
+        state={state}
+      />
 
       <Label>Title</Label>
       <Input
@@ -102,24 +119,7 @@ const Form = ({ setState, state }) => {
         maxLength={60}
       />
 
-      <PopoverDemo
-        BgImages={state.height === 1920 ? whatsappImage : instaImage}
-        title={"Background"}
-        setState={setState}
-        state={state}
-      />
-
-      <PopoverDemo
-        BgImages={categoryImage}
-        title={"Category"}
-        setState={setState}
-        state={state}
-      />
-
-      <a
-        className="download_button"
-        onClick={handleClick}
-        >
+      <a className="download_button" onClick={handleClick}>
         Download
       </a>
     </div>
