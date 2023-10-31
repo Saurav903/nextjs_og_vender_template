@@ -64,7 +64,8 @@ const RightComponentWhatsapp = ({ state }) => {
           alignItems: "center",
           width: "500px",
           paddingTop: "50px",
-          marginBottom: "50px",
+          marginBottom: "10px",
+          marginTop: "30px",
         }}
       >
         <img className={styles.categoryimg} src={category} alt="" />
