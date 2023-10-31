@@ -60,7 +60,7 @@ const Form = ({ setState, state }) => {
     <div className="form_container">
       <h1 className="form_heading">Vendor Form</h1>
 
-      <div className="flex flex-col md:flex-row gap-5 mx-auto">
+      <div className="flex flex-col md:flex-row gap-5 mx-auto mb-4">
         <Button onClick={() => handleSocailMedia(1080, 1080, 6)}>
           Instagram
           <FaInstagramSquare className="inst_icon" />
@@ -71,6 +71,7 @@ const Form = ({ setState, state }) => {
         </Button>
       </div>
 
+      <Label>Background</Label>
       <PopoverDemo
         BgImages={state.height === 1920 ? whatsappImage : instaImage}
         title={"Background"}
@@ -78,6 +79,7 @@ const Form = ({ setState, state }) => {
         state={state}
       />
 
+      <Label>Category</Label>
       <PopoverDemo
         BgImages={categoryImage}
         title={"Category"}
