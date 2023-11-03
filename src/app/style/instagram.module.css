@@ -11,13 +11,11 @@
 }
 
 .titlediv{
-   
-
           width: 225px;
           display: flex;
           justify-content: center;
           align-items: center;
-          padding-top: 80px;
+          padding-top: 95px;
           white-space: -moz-pre-wrap;
           text-align: center;
 
@@ -41,7 +39,7 @@
           align-items: center;
           white-space: -moz-pre-wrap;
           text-align: center;
-          margin-top: 15px;
+          margin-top: 8px;
 }
 
 .descriptpara{
