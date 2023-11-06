@@ -22,13 +22,12 @@ export function PopoverDemo({ BgImages, title, setState, state }) {
   };
 
   return (
-    <>
       <Popover>
         <PopoverTrigger className="border items-center border-gray-500 bg-gray-100 mb-4" asChild>
           <Button variant="outline">Choose {title} Image</Button>
         </PopoverTrigger>
-        <PopoverContent className={`justify-center w-[40%] m-auto md:w-full md:flex flex flex-wrap gap-3 border border-gray-400 bg-white`}>
-          {BgImages.map((image) => (
+        <PopoverContent className={`w-[40%] justify-center m-auto ml-10 md:w-full md:flex flex flex-wrap gap-3 border border-gray-400 bg-white `}>
+          {BgImages?.map((image) => (
             <Image
               onClick={() => handleImages(image.id)}
               key={image.id}
@@ -41,6 +40,5 @@ export function PopoverDemo({ BgImages, title, setState, state }) {
           ))}
         </PopoverContent>
       </Popover>
-    </>
   );
 }
