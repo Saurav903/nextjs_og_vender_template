@@ -58,7 +58,9 @@ const Form = ({ setState, state }) => {
 
   return (
     <div className="form_container">
-      <h1 className="form_heading">Vendor Form</h1>
+      <h1 className="form_heading text-center">
+        eCatering Marketing Post Generator
+      </h1>
 
       <div className="flex flex-col md:flex-row gap-5 mx-auto mb-4">
         <Button onClick={() => handleSocailMedia(1080, 1080, 6)}>
@@ -105,7 +107,7 @@ const Form = ({ setState, state }) => {
         name="description"
         placeholder="Please enter a description"
         onChange={handleChange}
-        maxLength={40}
+        maxLength={55}
       />
 
       <Label>Vendor Logo (jpg, png, jpeg) </Label>
