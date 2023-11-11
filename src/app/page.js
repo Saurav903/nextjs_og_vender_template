@@ -6,12 +6,12 @@ import RightComponentInstagram from "@/components/RightComponentInstagram";
 
 export default function Home() {
   const [state, setState] = useState({
-    title: "Navratri Vrat Special",
-    description: "Sabudana Khichdi, Upwas thali and More",
+    title: "Diwali Delights",
+    description: "Kaju Barfi,Moong Dal Halwa and a lot more",
     background: "",
     category: "",
     vendorLogo: "",
-    special: "Order Navratri specials from our restaurants now!",
+    special: "Order Diwali specials food from our restaurants now!",
     width: 1080,
     height: 1920,
     bp: ["center", "500px 760px", "no-repeat"],
