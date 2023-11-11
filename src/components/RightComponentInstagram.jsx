@@ -3,19 +3,19 @@ import { whatsappImage, instaImage, categoryImage } from "@/app/utils/data";
 import styles from "../app/style/instagram.module.css";
 
 const RightComponentInstagram = ({ state }) => {
-  let backgroundId = state.background || 6;
+  let backgroundId = state.background || 20;
   let backgroundData = instaImage.filter((el) => el.id === backgroundId);
   let background =
     backgroundData.length > 0
       ? backgroundData[0].src
-      : "https://neon.ipsator.com/c/image/upload/v1697634854/irctc/post/bg/instagram-story/post-instagram-story-bg-2.jpg";
+      : "https://neon.ipsator.com/c/image/upload/v1698930119/irctc/post/bg/post-post-5.jpg";
 
   let categoryId = state.category;
   let categoryData = categoryImage.filter((el) => el.id === categoryId);
   let category =
     categoryData.length > 0
       ? categoryData[0].src
-      : "https://neon.ipsator.com/c/image/upload/v1697634895/irctc/post/elements/food/post-food-1.png";
+      : "https://neon.ipsator.com/c/image/upload/v1698930176/irctc/post/elements/food/post-food-8.png";
 
   return (
     <div
