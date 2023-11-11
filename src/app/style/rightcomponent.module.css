@@ -13,7 +13,7 @@
 .titlediv{
    
 
-          width: 225px;
+          width: 240px;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -21,6 +21,7 @@
           white-space: -moz-pre-wrap;
           text-align: center;
           min-height: 150px;
+          /* border: 1px solid black; */
 }
 
 .title{
