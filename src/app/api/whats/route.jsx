@@ -19,24 +19,24 @@ export async function GET(request) {
 
     const title = hasTitle
       ? searchParams.get("title")
-      : " Navratri Vrat Special";
+      : " Diwali Delights";
 
     const description = hasDesc
       ? searchParams.get("description")
-      : "Sabudana Khichdi, Upwas thali & More";
+      : "Kaju Barfi,Moong Dal Halwa and a lot more";
     const special = hasSpecial
       ? searchParams.get("special")
-      : "Order Navratri specials from our restaurants now!";
+      : "Order Diwali specials food from our restaurants now!";
     const width = hasWidth ? searchParams.get("width") : 1080;
     const height = hasHeight ? searchParams.get("height") : 1920;
 
     // background image data
-    let backgroundId = Number(hasBackground) || 1;
+    let backgroundId = Number(hasBackground) || 17;
     let backgroundData = whatsappImage.filter((el) => el.id === backgroundId);
     const background =
       backgroundData.length > 0
         ? backgroundData[0].src
-        : "https://neon.ipsator.com/c/image/upload/v1697634854/irctc/post/bg/instagram-story/post-instagram-story-bg-2.jpg";
+        : "https://neon.ipsator.com/c/image/upload/v1698930095/irctc/post/bg/instagram-story/post-instagram-story-bg-5.jpg";
 
     // category image data
 
@@ -45,7 +45,7 @@ export async function GET(request) {
     const category =
       categoryData.length > 0
         ? categoryData[0].src
-        : "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-4.png";
+        : "https://neon.ipsator.com/c/image/upload/v1698930176/irctc/post/elements/food/post-food-8.png";
 
     // vendor logo
     let vendorlogo = hasvendorLogo
