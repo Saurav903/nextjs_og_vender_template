@@ -31,13 +31,13 @@ export async function GET(request) {
     const height = hasHeight ? searchParams.get("height") : 1035;
 
     // background image data
-    let backgroundId = Number(hasBackground) || 6;
+    let backgroundId = Number(hasBackground) || 20;
     let backgroundData = instaImage.filter((el) => el.id === backgroundId);
 
     const background =
       backgroundData.length > 0
         ? backgroundData[0].src
-        : "https://neon.ipsator.com/c/image/upload/v1697725264/irctc/post/bg/post-post-bg-2.jpg";
+        : "https://neon.ipsator.com/c/image/upload/v1698930119/irctc/post/bg/post-post-5.jpg";
 
     // category image data
     let categoryId = Number(hasCategory);
@@ -45,7 +45,7 @@ export async function GET(request) {
     const category =
       categoryData.length > 0
         ? categoryData[0].src
-        : "https://neon.ipsator.com/c/image/upload/v1697634895/irctc/post/elements/food/post-food-1.png";
+        : "https://neon.ipsator.com/c/image/upload/v1698930176/irctc/post/elements/food/post-food-8.png";
     let vendorlogo = hasvendorLogo
       ? searchParams.get("vendorlogo")
       : "https://neon.ipsator.com/c/image/upload/v1697634892/irctc/post/elements/food/post-food-5.png";
