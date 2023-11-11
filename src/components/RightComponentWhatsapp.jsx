@@ -5,19 +5,19 @@ import styles from "../app/style/rightcomponent.module.css";
 import { whatsappImage, categoryImage } from "@/app/utils/data";
 
 const RightComponentWhatsapp = ({ state }) => {
-  let backgroundId = state.background || 1;
+  let backgroundId = state.background || 17;
   let backgroundData = whatsappImage.filter((el) => el.id === backgroundId);
   let background =
     backgroundData.length > 0
       ? backgroundData[0].src
-      : "https://neon.ipsator.com/c/image/upload/v1697634854/irctc/post/bg/instagram-story/post-instagram-story-bg-2.jpg";
+      : "https://neon.ipsator.com/c/image/upload/v1698930095/irctc/post/bg/instagram-story/post-instagram-story-bg-5.jpg";
 
   let categoryId = state.category;
   let categoryData = categoryImage.filter((el) => el.id === categoryId);
   let category =
     categoryData.length > 0
       ? categoryData[0].src
-      : "https://neon.ipsator.com/c/image/upload/v1697634894/irctc/post/elements/food/post-food-4.png";
+      : "https://neon.ipsator.com/c/image/upload/v1698930176/irctc/post/elements/food/post-food-8.png";
 
   console.log(state.vendorlog);
 
