@@ -63,11 +63,11 @@ const Form = ({ setState, state }) => {
       </h1>
 
       <div className="flex flex-col md:flex-row gap-5 mx-auto mb-4">
-        <Button onClick={() => handleSocailMedia(1080, 1080, 6)}>
+        <Button onClick={() => handleSocailMedia(1080, 1080, 20)}>
           Instagram
           <FaInstagramSquare className="inst_icon" />
         </Button>
-        <Button onClick={() => handleSocailMedia(1080, 1920, 1)}>
+        <Button onClick={() => handleSocailMedia(1080, 1920, 17)}>
           Whatsapp
           <FaWhatsappSquare className="whatsapp_icon" />
         </Button>
@@ -96,7 +96,7 @@ const Form = ({ setState, state }) => {
         name="title"
         placeholder="Please enter a title"
         onChange={handleChange}
-        maxLength={22}
+        maxLength={21}
         required
       />
 
