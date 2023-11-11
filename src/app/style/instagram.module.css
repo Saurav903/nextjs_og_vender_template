@@ -11,35 +11,40 @@
 }
 
 .titlediv{
-          width: 225px;
+          width: 285px;
           display: flex;
           justify-content: center;
           align-items: center;
-          padding-top: 95px;
+          flex-wrap: wrap;
+          /* padding-top: 95px; */
+          margin-top: 105px;
           white-space: -moz-pre-wrap;
           text-align: center;
-
+        /* min-width: 72px; */
+        /* border: 1px solid black; */
 }
 
 .title{
-    font-size: 28px;
+    font-size: 27px;
+    min-height: 50px;
+    max-height: 50px;
 }
 
 .categoryimg{
-    height: 250px;
+    height: 260px;
     padding-top: 14%;
 }
 
 .descript{
     
-          width: 250px;
+          width: 280px;
           margin: auto;
           display: flex;
           justify-content: center;
           align-items: center;
           white-space: -moz-pre-wrap;
           text-align: center;
-          margin-top: 8px;
+          margin-top: 15px;
 }
 
 .descriptpara{
@@ -77,11 +82,12 @@
         background-size: 400px 400px;
         height: 550px;
         /* margin-left: 60px; */
-        padding-top:70px;
+        padding-top:20px;
     }
     .titlediv{
-        padding-top: 30px;
-        min-height: 80px;
+        /* padding-top: 30px; */
+        min-height: 40px;
+        max-height: 40px;
     }
     .title{
         font-size: 18px;
