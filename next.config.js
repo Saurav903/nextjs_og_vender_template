@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["neon.ipsator.com", "i.ibb.co"],
+    remotePatterns: [{protocol:"https",hostname:"neon.ipsator.com",port:""}, {protocol:"https",hostname:"i.ibb.co",port:""}],
   },
 };
 
