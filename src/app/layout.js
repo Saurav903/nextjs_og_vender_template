@@ -5,7 +5,9 @@ const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata = {
   title: "eCatering Marketing Post Generator",
+
   description: "To generate eCatering Post this form handles all.",
+
 };
 
 export default function RootLayout({ children }) {

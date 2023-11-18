@@ -58,9 +58,11 @@ const Form = ({ setState, state }) => {
 
   return (
     <div className="form_container">
+
       <h1 className="form_heading text-center">
         eCatering Marketing Post Generator
       </h1>
+
 
       <div className="flex flex-col md:flex-row gap-5 mx-auto mb-4">
         <Button onClick={() => handleSocailMedia(1080, 1080, 20)}>
