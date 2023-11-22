@@ -14,6 +14,15 @@ const Form = ({ setState, state }) => {
     let value;
     if (name == "vendorLogo") {
       const imageFile = e.target.files[0];
+      const allowedTypes = ['image/jpg', 'image/jpeg', 'image/png'];
+
+      // only allows above images types
+      if (!allowedTypes.includes(imageFile?.type)) {
+        alert('Only JPEG, JPG, and PNG images are allowed');
+        clearInput()
+        return;
+      }
+
       uploadImageAndGetURL(imageFile)
         .then((url) => {
           console.log("URL:", url);
@@ -54,6 +63,14 @@ const Form = ({ setState, state }) => {
     link.download = state.title;
     window.open(url, "_blank");
     link.click();
+  };
+
+  const clearInput = () => {
+    // Assuming you have a reference to your input element with the id "imageInput"
+    const imageInput = document.getElementById("vendor-logo");
+    if (imageInput) {
+      imageInput.value = ""; // Clear input value
+    }
   };
 
   return (
@@ -113,7 +130,7 @@ const Form = ({ setState, state }) => {
       />
 
       <Label>Vendor Logo (jpg, png, jpeg) </Label>
-      <Input type="file" name="vendorLogo" onChange={handleChange} />
+      <Input type="file" id='vendor-logo' name="vendorLogo" onChange={handleChange} />
 
       <Label>Vendor Details</Label>
       <Input
