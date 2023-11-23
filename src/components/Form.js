@@ -23,6 +23,11 @@ const Form = ({ setState, state }) => {
         return;
       }
 
+      if(imageFile.size > 1*1000*1024){
+        alert("Image size must be smaller than 1MB");
+        return;
+      }
+
       uploadImageAndGetURL(imageFile)
         .then((url) => {
           console.log("URL:", url);
