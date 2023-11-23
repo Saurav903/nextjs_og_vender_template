@@ -9,17 +9,17 @@ import { whatsappImage, instaImage, categoryImage } from "@/app/utils/data";
 import { uploadImageAndGetURL } from "@/Server/server";
 
 const Form = ({ setState, state }) => {
-  const handleChange = (e) => {
+  const handleChange = (e, wordLimit) => {
     let name = e.target.name;
     let value;
     if (name == "vendorLogo") {
       const imageFile = e.target.files[0];
-      const allowedTypes = ['image/jpg', 'image/jpeg', 'image/png'];
+      const allowedTypes = ["image/jpg", "image/jpeg", "image/png"];
 
       // only allows above images types
       if (!allowedTypes.includes(imageFile?.type)) {
-        alert('Only JPEG, JPG, and PNG images are allowed');
-        clearInput()
+        alert("Only JPEG, JPG, and PNG images are allowed");
+        clearInput();
         return;
       }
 
@@ -33,10 +33,11 @@ const Form = ({ setState, state }) => {
         });
     } else {
       value = e.target.value;
-      if (value.length >= e.target.maxLength) {
-        alert(`Maximum length of ${e.target.maxLength} characters reached.`);
-        console.log(value.length);
-        return;
+      const words = value.trim().split(/\s+/);
+
+      if (words.length > wordLimit) {
+        alert(`Maximum limit of ${wordLimit} words reached for this input.`);
+        return
       }
     }
     setState({ ...state, [name]: value });
@@ -75,11 +76,9 @@ const Form = ({ setState, state }) => {
 
   return (
     <div className="form_container">
-
       <h1 className="form_heading text-center">
         eCatering Marketing Post Generator
       </h1>
-
 
       <div className="flex flex-col md:flex-row gap-5 mx-auto mb-4">
         <Button onClick={() => handleSocailMedia(1080, 1080, 20)}>
@@ -114,8 +113,8 @@ const Form = ({ setState, state }) => {
         type="text"
         name="title"
         placeholder="Please enter a title"
-        onChange={handleChange}
-        maxLength={21}
+        onChange={(e) => handleChange(e, 3)}
+        // maxLength={21}
         required
       />
 
@@ -125,12 +124,18 @@ const Form = ({ setState, state }) => {
         type="text"
         name="description"
         placeholder="Please enter a description"
-        onChange={handleChange}
-        maxLength={55}
+        onChange={(e) => handleChange(e, 8)}
+        // maxLength={55}
       />
 
       <Label>Vendor Logo (jpg, png, jpeg) </Label>
-      <Input type="file" id='vendor-logo' name="vendorLogo" onChange={handleChange} />
+      <Input
+        type="file"
+        id="vendor-logo"
+        accept=".jpg, .jpeg, .png"
+        name="vendorLogo"
+        onChange={(e) => handleChange(e)}
+      />
 
       <Label>Vendor Details</Label>
       <Input
@@ -138,8 +143,8 @@ const Form = ({ setState, state }) => {
         type="text"
         name="special"
         placeholder="Please enter special text"
-        onChange={handleChange}
-        maxLength={60}
+        onChange={(e) => handleChange(e, 9)}
+        // maxLength={60}
       />
 
       <a className="download_button" onClick={handleClick}>

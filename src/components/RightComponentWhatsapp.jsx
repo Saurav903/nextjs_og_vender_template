@@ -19,7 +19,7 @@ const RightComponentWhatsapp = ({ state }) => {
       ? categoryData[0].src
       : "https://neon.ipsator.com/c/image/upload/v1698930176/irctc/post/elements/food/post-food-8.png";
 
-  console.log(state.vendorlog);
+  // console.log(state.vendorlog);
 
   return (
     <div
