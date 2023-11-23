@@ -25,6 +25,8 @@ const Form = ({ setState, state }) => {
 
       if(imageFile.size > 1*1000*1024){
         alert("Image size must be smaller than 1MB");
+        clearInput();
+        // this is for clearing the value of image.file
         return;
       }
 
