@@ -19,3 +19,4 @@ Custom fonts, text wrapping, centering, and nested images
 Ability to download the subset characters of the font from Google Fonts
 Compatible with any framework and application deployed on Vercel
 View your OG image and other metadata before your deployment goes to production through the Open Graph tab.
+Upgraded to latest nextjs 14.
